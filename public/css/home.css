@@ -1,0 +1,84 @@
+#passwords {
+    text-align: center;
+}
+
+#passwords article {
+
+    margin: 1rem;
+
+}
+
+#borrarBoton {
+    border-radius: 0;
+    margin-left: -1px;
+}
+
+#addPassword {
+    position: relative;
+    width: 35px;
+    height: 35px;
+
+    background-color: dodgerblue;
+
+    color: white;
+
+    transition: all 0.2s linear;
+}
+
+#addPassword:hover {
+
+    background-color: #197ad9;
+
+}
+
+#addPassword svg {
+    width: 20px;
+    height: 20px;
+
+    margin-left: -0.3rem;
+    margin-bottom: 0.3rem;
+}
+
+#addPassword {
+    position: relative;
+}
+
+.modal-body {
+
+        font-size: 17px;
+
+}
+
+.modal-body-web {
+
+    font-weight: bold;
+
+}
+
+@media (max-width: 576px) {
+
+    #passwords {
+        margin: 15px;
+    }
+
+    #addPassword {
+
+        position: fixed;
+        bottom: 0;
+        right: 0;
+
+        margin: 1rem;
+
+        width: 55px;
+        height: 55px;
+
+    }
+
+    #addPassword svg {
+        width: 30px;
+        height: 30px;
+
+        margin-left: 0rem;
+        margin-bottom: -1rem;
+    }
+}

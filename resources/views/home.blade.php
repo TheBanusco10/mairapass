@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('scripts')
-    <script src="./js/jquery.min.js"></script>
     <script src="./js/passwordButtons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">

@@ -1,8 +1,17 @@
-#passwords {
+body {
+    background: rgb(198,198,198);
+    background: linear-gradient(184deg, rgba(198,198,198,1) 0%, rgba(180,180,180,1) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100vh;
+}
+
+.passwords {
     text-align: center;
 }
 
-#passwords article {
+.passwords article {
 
     margin: 1rem;
 
@@ -57,7 +66,7 @@
 
 @media (max-width: 576px) {
 
-    #passwords {
+    .passwords {
         margin: 15px;
     }
 

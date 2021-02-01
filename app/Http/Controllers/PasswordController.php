@@ -14,11 +14,27 @@ class PasswordController extends Controller
     public function store() {
 
 
-        $password = new Password($this->validatePassword());
+        $password = new Password($this->validateForm());
 
         $password->user_id = auth()->id();
 
         $password->save();
+
+        return redirect(route('home'));
+
+    }
+
+    public function edit(Password $password) {
+
+            return view('passwords.edit', [
+                'password' => $password
+            ]);
+
+    }
+
+    public function update(Password $password) {
+
+        Password::where('id', $password->id)->update($this->validateForm());
 
         return redirect(route('home'));
 
@@ -34,7 +50,7 @@ class PasswordController extends Controller
 
     }
 
-    protected function validatePassword(): array
+    protected function validateForm(): array
     {
         return request()->validate([
             'web' => 'required',

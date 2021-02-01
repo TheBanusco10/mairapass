@@ -27,6 +27,11 @@
         <ul>
             @auth
                 <li>{{ Auth::user()->name }}</li>
+                <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Cerrar sesión</a></li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
             @else
                 <li><a href="{{ route('login') }}" class="button special">INICIAR SESIÓN</a></li>
                 <li><a href="{{ route('register') }}" class="button special">REGISTRARSE</a></li>
@@ -70,7 +75,7 @@
                 <section class="special box">
                     <i class="icon fa-refresh major"></i>
                     <h3>Generador de contraseña</h3>
-                    <p>Genera una contraseña aleatoria totalmente segura y personalizable. Tú eliges la longitud, caracteres y muchas más cosas.</p>
+                    <p>Genera una contraseña aleatoria totalmente segura y personalizable. Tú eliges la longitud y nosotros nos encargamos de generarte una contraseña segura.</p>
                 </section>
             </div>
             <div class="4u">
@@ -93,7 +98,8 @@
         <div class="row">
             <div class="nosotrosParrafo">
                 <section class="special">
-                    <p>Guardar tus contraseñas nunca ha sido más fácil. Recuerda tu clave maestra para acceder a la cuenta y poder acceder a todas las demás. También disponemos de una opción para generar una contraseña aleatoria totalmente segura, combinando caracteres especiales, dígitos y letras, tanto en mayúscula como en minúscula</p>
+                    <p>Guardar tus contraseñas nunca ha sido más fácil. Recuerda tu clave maestra para acceder a la cuenta y poder acceder a todas las demás.
+                         También disponemos de una opción para generar una contraseña aleatoria totalmente segura, combinando caracteres especiales, dígitos y letras, tanto en mayúscula como en minúscula.</p>
                 </section>
             </div>
         </div>
@@ -106,15 +112,15 @@
         <div class="row double">
             <div class="6u">
                 <div class="row collapse-at-2">
-                    <div class="6u">
-                        <h3>Accumsan</h3>
-                        <ul class="alt">
-                            <li><a href="#">Nascetur nunc varius</a></li>
-                            <li><a href="#">Vis faucibus sed tempor</a></li>
-                            <li><a href="#">Massa amet lobortis vel</a></li>
-                            <li><a href="#">Nascetur nunc varius</a></li>
-                        </ul>
-                    </div>
+{{--                    <div class="6u">--}}
+{{--                        <h3>Accumsan</h3>--}}
+{{--                        <ul class="alt">--}}
+{{--                            <li><a href="#">Nascetur nunc varius</a></li>--}}
+{{--                            <li><a href="#">Vis faucibus sed tempor</a></li>--}}
+{{--                            <li><a href="#">Massa amet lobortis vel</a></li>--}}
+{{--                            <li><a href="#">Nascetur nunc varius</a></li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
                     <div class="6u">
                         <h3>Faucibus</h3>
                         <ul class="alt">
@@ -139,9 +145,8 @@
             </div>
         </div>
         <ul class="copyright">
-            <li>&copy; Untitled. All rights reserved.</li>
+            <li>&copy; David Jiménez Villarejo. Todos los derechos reservados</li>
             <li>Design: <a href="http://templated.co">TEMPLATED</a></li>
-            <li>Images: <a href="http://unsplash.com">Unsplash</a></li>
         </ul>
     </div>
 </footer>

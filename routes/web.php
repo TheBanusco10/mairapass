@@ -22,6 +22,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home/create', 'App\Http\Controllers\PasswordController@create')->name('createPassword');
 Route::get('/home/edit/{password}', 'App\Http\Controllers\PasswordController@edit')->name('editPassword');
+Route::get('/settings/{user}', 'App\Http\Controllers\HomeController@settings')->name('settings');
 
 Route::post('/create', 'App\Http\Controllers\PasswordController@store')->name('create');
 

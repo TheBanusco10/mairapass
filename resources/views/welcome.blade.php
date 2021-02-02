@@ -11,6 +11,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="css/skel.css+style.css+style-xlarge.css" />
+    <link rel="icon" type="img/jpg" href="imgs/favicon.jpg" sizes="192x192">
 
     <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
     <script src="js/jquery.min.js"></script>
@@ -22,7 +23,7 @@
 
 <!-- Header -->
 <header id="header" class="skel-layers-fixed">
-    <h1>Maira Pass</h1>
+    <img src="imgs/logo.jpg" alt="logo" style="height: 48px">
     <nav id="nav">
         <ul>
             @auth

@@ -33,3 +33,17 @@ $(function () {
     });
 
 });
+
+function confirmarEliminarPassword(password) {
+
+    $('#modalEliminarPassword').modal('show');
+    $('#modalBody').text(`¿Está seguro de que desea eliminar la contraseña asociada a ${password.web}?`);
+
+    $('#eliminarPasswordBoton').click(function () {
+
+        $('#formEliminarPassword').prop('action', `/home/delete/${password.id}`);
+        $('#formEliminarPassword').submit();
+
+    });
+
+}

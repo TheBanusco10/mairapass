@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Password;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -27,7 +28,7 @@ class HomeController extends Controller
     {
 
         return view('home', [
-            'passwords' => Password::all()
+            'passwords' => Auth::user()->passwords
         ]);
     }
 

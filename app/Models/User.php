@@ -44,4 +44,5 @@ class User extends Authenticatable
     public function passwords() {
         return $this->hasMany(Password::class);
     }
+
 }

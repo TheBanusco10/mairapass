@@ -27,5 +27,6 @@ Route::get('/settings/{user}', 'App\Http\Controllers\HomeController@settings')->
 Route::post('/create', 'App\Http\Controllers\PasswordController@store')->name('create');
 
 Route::put('/update/{password}', 'App\Http\Controllers\PasswordController@update')->name('updatePassword');
+Route::put('/updateInformation/{user}', 'App\Http\Controllers\UserController@updateInformation')->name('updateInformation');
 
 Route::delete('/home/delete/{id}', 'App\Http\Controllers\PasswordController@delete')->name('delete');

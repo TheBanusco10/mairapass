@@ -9,16 +9,21 @@ $(function () {
 
    });
 
+   $('#reiniciarFondo').click(function () {
+       window.localStorage.removeItem('backgroundImage');
+       getImage();
+   });
+
 
 });
 
 function setImage(url) {
-    window.localStorage.setItem('image', url);
+    window.localStorage.setItem('backgroundImage', url);
     window.location.reload();
 }
 
 function getImage() {
-    let image = window.localStorage.image || '../imgs/passwordBackground2.jpg'
+    let image = window.localStorage.backgroundImage || '../imgs/passwordBackground2.jpg'
     $('main').addClass('bg');
     $('main').css('background-image', `url("${image}")`);
 }

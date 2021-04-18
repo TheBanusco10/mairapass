@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Password;
+use App\Http\Controllers\EncryptionController;
 
 class PasswordController extends Controller
 {
@@ -17,6 +18,7 @@ class PasswordController extends Controller
         $password = new Password($this->validateForm());
 
         $password->user_id = auth()->id();
+        $password->password = EncryptionController::encrypt($password->password);
 
         $password->save();
 

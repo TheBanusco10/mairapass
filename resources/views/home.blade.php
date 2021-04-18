@@ -37,7 +37,7 @@
                     <h5 class="card-title">{{ $password->web }}</h5>
                     <p class="card-text">{{ $password->email }}</p>
                     <div class="input-group mb-3">
-                        <input readonly type="password" id="userPassword" name="{{ $password->id }}" class="form-control" value="{{ $password->password }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
+                        <input readonly type="password" id="userPassword" name="{{ $password->id }}" class="form-control" value="{{ \App\Http\Controllers\EncryptionController::decrypt($password->password) }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
                         <div class="input-group-append">
                             <button title="Copiar" class="btn btn-outline-secondary copyPassword" data-id="{{ $password->id }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">

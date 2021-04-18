@@ -18,17 +18,16 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home/create', 'App\Http\Controllers\PasswordController@create')->name('createPassword');
-Route::get('/home/edit/{password}', 'App\Http\Controllers\PasswordController@edit')->name('editPassword');
-Route::get('/settings/{user}', 'App\Http\Controllers\HomeController@settings')->name('settings');
-Route::get('/encrypt/{string}', 'App\Http\Controllers\EncryptionController@encrypt');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
+Route::get('/home/create', 'App\Http\Controllers\PasswordController@create')->name('createPassword')->middleware('verified');
+Route::get('/home/edit/{password}', 'App\Http\Controllers\PasswordController@edit')->name('editPassword')->middleware('verified');
+Route::get('/settings/{user}', 'App\Http\Controllers\HomeController@settings')->name('settings')->middleware('verified');
 
+Route::post('/create', 'App\Http\Controllers\PasswordController@store')->name('create')->middleware('verified');
 
-Route::post('/create', 'App\Http\Controllers\PasswordController@store')->name('create');
+Route::put('/update/{password}', 'App\Http\Controllers\PasswordController@update')->name('updatePassword')->middleware('verified');
+Route::put('/updateInformation/{user}', 'App\Http\Controllers\UserController@updateInformation')->name('updateInformation')->middleware('verified');
 
-Route::put('/update/{password}', 'App\Http\Controllers\PasswordController@update')->name('updatePassword');
-Route::put('/updateInformation/{user}', 'App\Http\Controllers\UserController@updateInformation')->name('updateInformation');
-
-Route::delete('/home/delete/{id}', 'App\Http\Controllers\PasswordController@delete')->name('delete');
+Route::delete('/home/delete/{id}', 'App\Http\Controllers\PasswordController@delete')->name('delete')->middleware('verified');

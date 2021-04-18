@@ -18,6 +18,8 @@ class PasswordController extends Controller
         $password = new Password($this->validateForm());
 
         $password->user_id = auth()->id();
+        $password->email = EncryptionController::encrypt($password->email);
+        $password->web = EncryptionController::encrypt($password->web);
         $password->password = EncryptionController::encrypt($password->password);
 
         $password->save();

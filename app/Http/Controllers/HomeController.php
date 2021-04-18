@@ -27,6 +27,12 @@ class HomeController extends Controller
     public function index()
     {
 
+        foreach (Auth::user()->passwords as $password) {
+            $password->web = EncryptionController::decrypt($password->web);
+            $password->email = EncryptionController::decrypt($password->email);
+            $password->password = EncryptionController::decrypt($password->password);
+        }
+
         return view('home', [
             'passwords' => Auth::user()->passwords
         ]);

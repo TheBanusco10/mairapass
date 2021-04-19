@@ -9,6 +9,6 @@ class Password extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['web', 'email', 'password'];
+    protected $fillable = ['web', 'url_web', 'email', 'password'];
 
 }

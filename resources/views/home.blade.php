@@ -22,7 +22,7 @@
     </div>
     <div class="row justify-content-center passwords">
         @foreach($passwords as $password)
-            <article class="card col-12 col-md-4 mt-4" style="width: 18rem;">
+            <article class="card col-12 col-md-3 mt-3" style="width: 18rem;">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12 mb-2 d-flex justify-content-end" title="Actualizar">
@@ -34,7 +34,11 @@
                             </a>
                         </div>
                     </div>
-                    <h5 class="card-title">{{ $password->web }}</h5>
+                    <h5 class="card-title">
+                        <a href="{{$password->url_web}}" target="_blank">
+                            {{ $password->web }}
+                        </a>
+                    </h5>
                     <p class="card-text">{{ $password->email }}</p>
                     <div class="input-group mb-3">
                         <input readonly type="password" id="userPassword" name="{{ $password->id }}" class="form-control" value="{{ $password->password }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">

@@ -29,6 +29,7 @@ class HomeController extends Controller
 
         foreach (Auth::user()->passwords as $password) {
             $password->web = EncryptionController::decrypt($password->web);
+            $password->url_web = EncryptionController::decrypt($password->url_web);
             $password->email = EncryptionController::decrypt($password->email);
             $password->password = EncryptionController::decrypt($password->password);
         }

@@ -17,6 +17,7 @@ class CreatePasswordsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->text('web');
+            $table->text('url_web')->nullable();
             $table->text('email');
             $table->text('password');
             $table->timestamps();

@@ -20,6 +20,7 @@ class PasswordController extends Controller
         $password->user_id = auth()->id();
         $password->email = EncryptionController::encrypt($password->email);
         $password->web = EncryptionController::encrypt($password->web);
+        $password->url_web = EncryptionController::encrypt($password->url_web);
         $password->password = EncryptionController::encrypt($password->password);
 
         $password->save();
@@ -58,6 +59,7 @@ class PasswordController extends Controller
     {
         return request()->validate([
             'web' => 'required',
+            'url_web' =>'',
             'email' => 'required',
             'password' => 'required'
         ]);

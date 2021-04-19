@@ -23,7 +23,14 @@ function setImage(url) {
 }
 
 function getImage() {
-    let image = window.localStorage.backgroundImage || '../imgs/passwordBackground2.jpg'
-    $('main').addClass('bg');
-    $('main').css('background-image', `url("${image}")`);
+    // let image = window.localStorage.backgroundImage || '../imgs/passwordBackground2.jpg';
+    // $('main').addClass('bg');
+    let image = window.localStorage.backgroundImage;
+    if (!image) {
+        $('main').addClass('defaultBg');
+    }else {
+
+        $('main').removeClass('defaultBg');
+        $('main').css('background-image', `url("${image}")`);
+    }
 }

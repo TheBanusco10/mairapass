@@ -6,6 +6,12 @@
 
 @endsection
 
+@section('estilos')
+
+    <link rel="stylesheet" href="{{ asset('css/createPass.css') }}">
+
+@endsection
+
 @section('content')
 
     <div class="container">
@@ -79,6 +85,16 @@
                                             </svg>
                                         </button>
                                     </div>
+                                </div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-8 mt-2">
+                                    <div class="progress" style="width: 73%">
+                                        <div class="progress-bar" id="progresoPassword" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-8 mt-2">
+                                    <p id="textoInformacionPassword"></p>
                                 </div>
                                 <div class="col-md-4"></div>
                                 <span class="mr-2">6</span>

@@ -29,5 +29,6 @@ Route::post('/create', 'App\Http\Controllers\PasswordController@store')->name('c
 
 Route::put('/update/{password}', 'App\Http\Controllers\PasswordController@update')->name('updatePassword')->middleware('verified');
 Route::put('/updateInformation/{user}', 'App\Http\Controllers\UserController@updateInformation')->name('updateInformation')->middleware('verified');
+Route::put('/updatePro/{user}', 'App\Http\Controllers\UserController@updatePro')->name('updatePro')->middleware('verified');
 
 Route::delete('/home/delete/{id}', 'App\Http\Controllers\PasswordController@delete')->name('delete')->middleware('verified');

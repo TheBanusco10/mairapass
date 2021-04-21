@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\EncryptionController;
 use Illuminate\Http\Request;
 use App\Models\Password;
-use App\Http\Controllers\EncryptionController;
 
 class PasswordController extends Controller
 {
@@ -31,9 +31,14 @@ class PasswordController extends Controller
 
     public function edit(Password $password) {
 
-            return view('passwords.edit', [
-                'password' => $password
-            ]);
+        $password->web = EncryptionController::decrypt($password->web);
+        $password->url_web = EncryptionController::decrypt($password->url_web);
+        $password->email = EncryptionController::decrypt($password->email);
+        $password->password = EncryptionController::decrypt($password->password);
+
+        return view('passwords.edit', [
+            'password' => $password
+        ]);
 
     }
 

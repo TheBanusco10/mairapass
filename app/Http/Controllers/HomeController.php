@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+
+    protected $NUMBER_PASSWORDS_FREE_ACCOUNT = 10;
+
     /**
      * Create a new controller instance.
      *
@@ -26,8 +29,16 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
 
-        foreach (Auth::user()->passwords as $password) {
+        $numberPasswords = Password::where('user_id', $user->id)->count();
+
+        $canAddPasswords = true;
+
+        if (!$user->isPro)
+            $canAddPasswords = $numberPasswords < $this->NUMBER_PASSWORDS_FREE_ACCOUNT;
+
+        foreach ($user->passwords as $password) {
             $password->web = EncryptionController::decrypt($password->web);
             $password->url_web = EncryptionController::decrypt($password->url_web);
             $password->email = EncryptionController::decrypt($password->email);
@@ -35,7 +46,8 @@ class HomeController extends Controller
         }
 
         return view('home', [
-            'passwords' => Auth::user()->passwords
+            'passwords' => $user->passwords,
+            'canAddPasswords' => $canAddPasswords
         ]);
     }
 

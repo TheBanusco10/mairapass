@@ -14,6 +14,13 @@ class UserController extends Controller
 
     }
 
+    public function updatePro(User $user) {
+        User::where('id', $user->id)->update(['isPro' => true]);
+
+        return view('purchase-success');
+
+    }
+
     protected function validateForm(): array
     {
         return request()->validate([

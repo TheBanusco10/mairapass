@@ -1,0 +1,24 @@
+main {
+    display: flex;
+    flex-wrap: wrap;
+
+    align-content: center;
+}
+
+#purchaseContainer {
+
+    background-color: white;
+
+    border-radius: 4px;
+
+    box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, .5);
+
+    height: 400px;
+}
+
+.rightColumn {
+    background-image: url("../imgs/compra-realizada.svg");
+
+    background-repeat: no-repeat;
+    background-position: 40% 10%;
+}

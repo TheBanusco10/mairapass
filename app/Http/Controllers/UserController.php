@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Mail\PurchaseSuccess;
+use Mail;
 
 class UserController extends Controller
 {
@@ -16,6 +18,8 @@ class UserController extends Controller
 
     public function updatePro(User $user) {
         User::where('id', $user->id)->update(['isPro' => true]);
+
+        Mail::to('dajivi2019@gmail.com')->send(new PurchaseSuccess());
 
         return view('purchase-success');
 

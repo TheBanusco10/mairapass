@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 Auth::routes(['verify' => true]);
 
+Route::get('/email', 'App\Http\Controllers\HomeController@email')->middleware('verified');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 Route::get('/home/create', 'App\Http\Controllers\PasswordController@create')->name('createPassword')->middleware('verified');
 Route::get('/home/edit/{password}', 'App\Http\Controllers\PasswordController@edit')->name('editPassword')->middleware('verified');

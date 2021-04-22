@@ -51,6 +51,10 @@ class HomeController extends Controller
         ]);
     }
 
+    public function email() {
+        return view('emails.purchase-success');
+    }
+
     public function settings(User $user) {
 
         return view('settings', [

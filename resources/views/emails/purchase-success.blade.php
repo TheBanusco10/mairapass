@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -7,29 +9,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MairaPass</title>
 
-    <style>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+    <style>
 
         body {
 
-            height: 100vh;
-
-            display: flex;
-            flex-wrap: wrap;
-
-            justify-content: center;
-            align-items: center;
-
             background-color: #EDF2F7;
+        }
 
-            font-family: 'Roboto', sans-serif;
+        img {
+            width: auto;
         }
 
         .container {
+            position: relative;
+
             width: 50%;
             height: 60%;
-            text-align: center;
+
+            transform: translateY(50%);
+
+            padding: 20px;
 
             background-color: white;
 
@@ -38,55 +39,33 @@
             box-shadow: 2px 5px 20px 2px rgba(0, 0, 0, .3);
         }
 
-        .cuerpo {
-            height: 200px;
-            padding: 20px;
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+            }
 
-        }
-
-        #boton {
-            padding: 10px;
-            background-color: coral;
-            border-radius: 4px;
-
-            text-decoration: none;
-            color: white;
-        }
-
-        .despedida {
-            text-align: right;
-            font-style: italic;
-        }
-
-        footer {
-            width: 100%;
-
-            padding: 20px;
-
-            background-color: #444;
-
-            color: white;
-
-            display: flex;
-            flex-wrap: wrap;
-
-            justify-content: end;
-            align-items: center;
+            img {
+                width: 100%;
+            }
         }
 
     </style>
 </head>
 <body>
+
     <div class="container">
-        <div class="cuerpo">
-            <img src="{{asset('imgs/logo.jpg')}}" alt="logo">
-            <h3>Compra realizada correctamente</h3>
-            <p>Tu cuenta ha sido mejorada a Pro. Ahora podrás disfrutar de todas las ventajas que ofrece este paquete, como contraseñas ilimitadas.</p>
-            <a id="boton" href="localhost:8000/home">Ir a la aplicación</a>
+        <div class="row">
+            <div class="col-12 text-center">
+                <img src="{{asset('imgs/logo.jpg')}}" alt="logo">
+                <h2>Compra realizada con éxito</h2>
+                <p>
+                    Su cuenta ha sido mejorada a <strong>Pro</strong>, ahora podrá disfrutar de todas
+                    las ventajas como contraseñas ilimitadas.
+                </p>
+                <a href="{{URL::to('/home')}}" class="btn btn-success">Ir a la aplicación</a>
+            </div>
         </div>
     </div>
-    <footer>
-        <p class="despedida">Gracias por confiar en nosotros, Maira Pass</p>
-    </footer>
+
 </body>
 </html>

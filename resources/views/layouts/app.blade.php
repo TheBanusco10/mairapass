@@ -25,7 +25,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
-    <link rel="icon" type="img/jpg" href="imgs/favicon.jpg" sizes="192x192">
+    <link rel="icon" type="img/jpg" href="{{asset('imgs/favicon.jpg')}}" sizes="192x192">
 
     @yield('estilos')
 </head>

@@ -2,7 +2,7 @@
 
 @section('scripts')
 
-    <script src="{{ asset('js/generatePassword.js') }}"></script>
+    <script type="module" src="{{ asset('js/generatePassword.js') }}"></script>
 
 @endsection
 
@@ -86,6 +86,53 @@
                                         </button>
                                     </div>
                                 </div>
+
+                                <div class="col-md-4"></div>
+                                <div class="col-md-8 d-flex">
+                                    <div class="col-4">
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="mayusculas">
+                                            <label class="form-check-label" for="mayusculas">
+                                                Mayúsculas
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="minusculas">
+                                            <label class="form-check-label" for="minusculas">
+                                                Minúsculas
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4"></div>
+                                <div class="col-md-8 d-flex">
+                                    <div class="col-4">
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="digitos">
+                                            <label class="form-check-label" for="digitos">
+                                                Dígitos
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="simbolos">
+                                            <label class="form-check-label" for="simbolos">
+                                                Símbolos
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="col-md-4"></div>
                                 <div class="col-md-8 mt-2">
                                     <div class="progress" style="width: 73%">

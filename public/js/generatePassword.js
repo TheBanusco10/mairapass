@@ -4,11 +4,21 @@ requirejs(['zxcvbn'], function (zxcvbn) {
 
         $('#generatePassword').click(function () {
 
-            let length = parseInt($('#inputRange').val());
-    
-            $('#password').val(rand(length));
-            comprobarPassword($('#password').val());
-    
+            let passwordOptions = checkOptions({
+                uppers: $('#mayusculas').prop('checked'),
+                lowers: $('#minusculas').prop('checked'),
+                digits: $('#digitos').prop('checked'),
+                symbols: $('#simbolos').prop('checked'),
+            });
+
+            console.log(passwordOptions);
+            let password = generatePassword.randomPassword({
+                length: parseInt($('#inputRange').val()),
+                characters: passwordOptions
+            });
+
+            $('#password').val(password);
+            comprobarPassword(password);
         });
 
         // Mostras contraseña
@@ -25,19 +35,18 @@ requirejs(['zxcvbn'], function (zxcvbn) {
                 mostrado = false;
             }
         });
-            
+
         $('#password').keyup(function () {
-            
+
             comprobarPassword($(this).val());
-            
+
         });
-        
+
         function comprobarPassword(password) {
-        
+
             $('#textoInformacionPassword').show();
 
             let {score, feedback} = zxcvbn(password);
-            let resultado = zxcvbn(password);
 
             let color;
 
@@ -53,11 +62,29 @@ requirejs(['zxcvbn'], function (zxcvbn) {
             feedback.warning !== '' ?  $('#textoInformacionPassword').html(feedback.warning) : $('#textoInformacionPassword').hide();
 
             $('#progresoPassword').css('width', `${score * 25}%`);
-        
+
         }
-    
+
     })
 });
+
+/**
+ * @description Comprueba las opciones que ha elegido el usuario para la contraseña y devuelve las opciones finales
+ * @param values Object
+ * @returns Array
+ */
+function checkOptions(values) {
+
+    let options = [];
+
+    if (values.uppers) options.push(generatePassword.upper);
+    if (values.lowers) options.push(generatePassword.lower);
+    if (values.digits) options.push(generatePassword.digits);
+    if (values.symbols) options.push(generatePassword.symbols);
+
+    return options;
+
+}
 
 function rand(length) {
 

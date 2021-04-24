@@ -108,5 +108,7 @@
             </div>
         </footer>
     </div>
+
+    @yield('paypal')
 </body>
 </html>

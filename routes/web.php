@@ -24,6 +24,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/home/create', 'App\Http\Controllers\PasswordController@create')->name('createPassword')->middleware('verified');
 Route::get('/home/edit/{password}', 'App\Http\Controllers\PasswordController@edit')->name('editPassword')->middleware('verified');
 Route::get('/settings/{user}', 'App\Http\Controllers\HomeController@settings')->name('settings')->middleware('verified');
+Route::get('/purchase', function () {
+
+    return view('purchase');
+
+})->middleware('verified');
 
 Route::post('/create', 'App\Http\Controllers\PasswordController@store')->name('create')->middleware('verified');
 

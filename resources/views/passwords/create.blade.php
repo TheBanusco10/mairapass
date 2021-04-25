@@ -15,7 +15,7 @@
 @section('content')
 
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mt-4">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Añadir contraseña</div>
@@ -25,7 +25,7 @@
                             @csrf
 
                             <div class="form-group row">
-                                <label for="web" class="col-md-4 col-form-label text-md-right">Web usada</label>
+                                <label for="web" class="col-md-4 col-form-label text-md-right">Nombre de la web</label>
 
                                 <div class="col-md-6">
                                     <input id="web" type="text" class="form-control @error('web') is-invalid @enderror" name="web" value="{{ old('web') }}" required autocomplete="web">
@@ -133,6 +133,7 @@
                                     </div>
                                 </div>
 
+                                @if (\Illuminate\Support\Facades\Auth::user()->isPro)
                                 <div class="col-md-4"></div>
                                 <div class="col-md-8 mt-2">
                                     <div class="progress" style="width: 73%">
@@ -143,6 +144,7 @@
                                 <div class="col-md-8 mt-2">
                                     <p id="textoInformacionPassword"></p>
                                 </div>
+                                @endif
                                 <div class="col-md-4"></div>
                                 <span class="mr-2">6</span>
                                 <input id="inputRange" type="range" min="6" max="12" class="col-md-6 p-0">

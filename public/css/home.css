@@ -9,6 +9,7 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
 
+    overflow: auto;
     height: 100vh;
 }
 
@@ -123,7 +124,11 @@ footer {
 
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
+
+    input {
+        margin-bottom: 1rem;
+    }
 
     .passwords {
         margin: 15px;
@@ -153,4 +158,12 @@ footer {
     .columnaOpciones {
         height: auto;
     }
+}
+
+@media (max-width: 368px) {
+
+    input {
+        width: 100%;
+    }
+
 }

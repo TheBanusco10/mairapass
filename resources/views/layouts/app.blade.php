@@ -96,15 +96,15 @@
             @yield('content')
         </main>
 
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h4>Footer</h4>
-                    </div>
-                </div>
-            </div>
-        </footer>
+{{--        <footer>--}}
+{{--            <div class="container">--}}
+{{--                <div class="row">--}}
+{{--                    <div class="col-12">--}}
+{{--                        <h4>Footer</h4>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </footer>--}}
     </div>
 
     @yield('paypal')

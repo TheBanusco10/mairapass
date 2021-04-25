@@ -23,7 +23,6 @@ function setImage(url) {
 }
 
 function getImage() {
-    console.log('Obteniendo imagen')
     // let image = window.localStorage.backgroundImage || '../imgs/passwordBackground2.jpg';
     // $('main').addClass('bg');
     let image = window.localStorage.backgroundImage;

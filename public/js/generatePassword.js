@@ -1,72 +1,69 @@
-// Utilizamos la librería zxcvbn para comprobar la seguridad de la contraseña
-requirejs(['zxcvbn'], function (zxcvbn) {
-    $(function () {
+$(function () {
 
-        $('#generatePassword').click(function () {
+    $('#generatePassword').click(function () {
 
-            let passwordOptions = checkOptions({
-                uppers: $('#mayusculas').prop('checked'),
-                lowers: $('#minusculas').prop('checked'),
-                digits: $('#digitos').prop('checked'),
-                symbols: $('#simbolos').prop('checked'),
-            });
-
-            console.log(passwordOptions);
-            let password = generatePassword.randomPassword({
-                length: parseInt($('#inputRange').val()),
-                characters: passwordOptions
-            });
-
-            $('#password').val(password);
-            comprobarPassword(password);
+        let passwordOptions = checkOptions({
+            uppers: $('#mayusculas').prop('checked'),
+            lowers: $('#minusculas').prop('checked'),
+            digits: $('#digitos').prop('checked'),
+            symbols: $('#simbolos').prop('checked'),
         });
 
-        // Mostras contraseña
-        let mostrado = false;
-
-        $('.showPassword').click(function () {
-
-            if (!mostrado) {
-                $('#password').prop('type', 'text');
-                mostrado = true;
-            }
-            else {
-                $('#password').prop('type', 'password');
-                mostrado = false;
-            }
+        let password = generatePassword.randomPassword({
+            length: parseInt($('#inputRange').val()),
+            characters: passwordOptions
         });
 
-        $('#password').keyup(function () {
+        $('#password').val(password);
+        comprobarPassword(password);
+    });
 
-            comprobarPassword($(this).val());
+    // Mostras contraseña
+    let mostrado = false;
 
-        });
+    $('.showPassword').click(function () {
 
-        function comprobarPassword(password) {
-
-            $('#textoInformacionPassword').show();
-
-            let {score, feedback} = zxcvbn(password);
-
-            let color;
-
-            if (score === 0 || score === 1) color = 'danger';
-            if (score === 2 || score === 3) color = 'warning';
-            if (score === 4) color = 'success';
-
-
-            $('#progresoPassword').removeClass();
-
-            $('#progresoPassword').addClass(['progress-bar', `bg-${color}`]);
-
-            feedback.warning !== '' ?  $('#textoInformacionPassword').html(feedback.warning) : $('#textoInformacionPassword').hide();
-
-            $('#progresoPassword').css('width', `${score * 25}%`);
-
+        if (!mostrado) {
+            $('#password').prop('type', 'text');
+            mostrado = true;
         }
+        else {
+            $('#password').prop('type', 'password');
+            mostrado = false;
+        }
+    });
 
-    })
+    $('#password').keyup(function () {
+
+        comprobarPassword($(this).val());
+
+    });
+
+
 });
+
+function comprobarPassword(password) {
+
+    $('#textoInformacionPassword').show();
+
+    let {score, feedback} = zxcvbn(password);
+
+    let color;
+
+    if (score === 0 || score === 1) color = 'danger';
+    if (score === 2 || score === 3) color = 'warning';
+    if (score === 4) color = 'success';
+
+
+    $('#progresoPassword').removeClass();
+
+    $('#progresoPassword').addClass(['progress-bar', `bg-${color}`]);
+
+    feedback.warning !== '' ?  $('#textoInformacionPassword').html(feedback.warning) : $('#textoInformacionPassword').hide();
+
+    $('#progresoPassword').css('width', `${score * 25}%`);
+
+}
 
 /**
  * @description Comprueba las opciones que ha elegido el usuario para la contraseña y devuelve las opciones finales

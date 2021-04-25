@@ -45,7 +45,11 @@ class HomeController extends Controller
             $password->password = EncryptionController::decrypt($password->password);
         }
 
-        return view('home', [
+//        return view('home', [
+//            'passwords' => $user->passwords,
+//            'canAddPasswords' => $canAddPasswords
+//        ]);
+        return view('home2', [
             'passwords' => $user->passwords,
             'canAddPasswords' => $canAddPasswords
         ]);

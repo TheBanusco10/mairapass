@@ -25,6 +25,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "secure-random-password": "^0.2.2"
+        "secure-random-password": "^0.2.2",
+        "zxcvbn": "^4.4.2"
     }
 }

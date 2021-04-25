@@ -6,6 +6,7 @@
 
 require('./bootstrap');
 window.generatePassword = require('secure-random-password');
+window.zxcvbn = require('zxcvbn');
 
 window.Vue = require('vue').default;
 

@@ -92,7 +92,7 @@
                                     <div class="col-4">
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="mayusculas">
+                                            <input class="form-check-input" type="checkbox" checked id="mayusculas">
                                             <label class="form-check-label" for="mayusculas">
                                                 Mayúsculas
                                             </label>
@@ -102,7 +102,7 @@
                                     <div class="col-4">
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="minusculas">
+                                            <input class="form-check-input" type="checkbox" checked id="minusculas">
                                             <label class="form-check-label" for="minusculas">
                                                 Minúsculas
                                             </label>
@@ -115,7 +115,7 @@
                                     <div class="col-4">
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="digitos">
+                                            <input class="form-check-input" checked type="checkbox" id="digitos">
                                             <label class="form-check-label" for="digitos">
                                                 Dígitos
                                             </label>
@@ -125,7 +125,7 @@
                                     <div class="col-4">
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="simbolos">
+                                            <input class="form-check-input" checked type="checkbox" id="simbolos">
                                             <label class="form-check-label" for="simbolos">
                                                 Símbolos
                                             </label>

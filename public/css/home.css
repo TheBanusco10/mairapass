@@ -31,6 +31,24 @@ main {
 
 }
 
+.tarjeta-contraseña {
+
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+
+}
+
+#contraseñas {
+    height: 100vh;
+    overflow: scroll;
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#contraseñas::-webkit-scrollbar {
+    display: none;
+}
+
 #homeContainer {
     background-color: white;
     padding: 20px;
@@ -122,6 +140,12 @@ footer {
 
     font-weight: bold;
 
+}
+
+@media (min-width: 1200px) {
+    #contraseñas {
+        height: 470px;
+    }
 }
 
 @media (max-width: 768px) {

@@ -82,8 +82,8 @@
             <div class="4u">
                 <section class="special box">
                     <i class="icon fa-cog major"></i>
-                    <h3>Amet sed accumsan</h3>
-                    <p>Eu non col commodo accumsan ante mi. Commodo consectetur sed mi adipiscing accumsan ac nunc tincidunt lobortis.</p>
+                    <h3>Información cifrada</h3>
+                    <p>Toda la información guardada en la base de datos es cifrada.</p>
                 </section>
             </div>
         </div>

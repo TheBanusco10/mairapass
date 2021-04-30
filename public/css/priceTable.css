@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.tabla {
+    width: 50%;
+
+    color: white;
+
+    border-radius: 5px;
+
+    /*background: linear-gradient(to top, #3aa0d1, #3ad2d1);*/
+    /*padding: 10px;*/
+
+    font-family: 'Open Sans', sans-serif;
+}
+
+.tablaContenido, .cabecera {
+    padding: 10px;
+    background-color: #E97D68;
+}
+
+.cabecera {
+    text-align: center;
+    /*background: linear-gradient(to top, #3aa0d1, #3ad2d1);*/
+
+}
+
+.cabecera p {
+    font-size: 40px;
+}
+
+.cabecera span {
+    font-size: 20px;
+}
+
+.tablaContenido ul {
+    list-style: none;
+}
+
+.tablaContenido ul li {
+    margin-bottom: 15px;
+}
+
+.pie {
+    height: 70px !important;
+}
+
+.btn-actualizarPro {
+    background-color: #112e3c !important;
+    color: white !important;
+    border-radius: 0 !important;
+
+    height: 100%;
+
+    width: 100%;
+}
+
+.btn-actualizarPro:hover {
+    background-color: #153a4c !important;
+}
+
+@media (max-width: 576px) {
+    .tabla {
+        width: 100%;
+    }
+}
+

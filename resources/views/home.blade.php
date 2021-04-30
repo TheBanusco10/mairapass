@@ -4,6 +4,7 @@
     <script src="./js/passwordButtons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{asset('css/priceTable.css')}}">
 
 @endsection
 
@@ -15,6 +16,9 @@
                 <div class="list-group" id="list-tab" role="tablist">
                     <a class="list-group-item list-group-item-action active" data-bs-toggle="list" href="#contraseñas" role="tab" aria-controls="contraseñas">Contraseñas</a>
                     <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#tarjetas" role="tab" aria-controls="tarjetas">Tarjetas de crédito</a>
+                    @if (!$usuario->isPro)
+                        <a class="list-group-item list-group-item-action actualizaProOpcion" data-bs-toggle="list" href="#pro" role="tab" aria-controls="pro">Actualiza a Pro</a>
+                    @endif
                 </div>
             </div>
             <div id="contenidoAplicacion" class="col-12 col-md-10 mt-4">
@@ -366,6 +370,50 @@
                                 @endforeach
                             </div>
                         </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="pro" role="tabpanel" aria-labelledby="pro">
+                        <div class="col-12">
+                            <form action="/purchase" class="d-flex justify-content-center" method="GET">
+                                @csrf
+                                <div class="tabla">
+                                    <div class="cabecera">
+                                        <h3>PRO</h3>
+                                        <p>10 <span>€</span></p>
+
+                                    </div>
+                                    <div class="tablaContenido">
+                                        <ul>
+                                            <li>Contraseñas ilimitadas</li>
+                                            <li>Muestra el nivel de seguridad de su contraseña</li>
+                                        </ul>
+
+                                    </div>
+                                    <div class="pie">
+                                        <button class="btn btn-actualizarPro">Actualizar a PRO</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+{{--                        @if (!$usuario->isPro)--}}
+{{--                            <div class="col-12">--}}
+{{--                                <div class="card">--}}
+{{--                                    <div class="card-header">--}}
+{{--                                        <h4>Actualiza tu cuenta a PRO</h4>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="card-body">--}}
+{{--                                        <form action="/purchase" method="GET">--}}
+{{--                                            @csrf--}}
+{{--                                            <h5>¿Quieres tener las ventajas de la cuenta PRO?</h5>--}}
+{{--                                            <p>Actualiza ahora tu cuenta para poder añadir contraseñas ilimitadas</p>--}}
+{{--                                            <button class="btn btn-success">Actualizar a PRO</button>--}}
+{{--                                        </form>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        @endif--}}
+
 
                     </div>
                 </div>

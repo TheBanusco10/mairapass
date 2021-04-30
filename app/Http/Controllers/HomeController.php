@@ -47,6 +47,7 @@ class HomeController extends Controller
 
         return view('home', [
             'passwords' => $user->passwords,
+            'usuario' => Auth::user(),
             'canAddPasswords' => $canAddPasswords
         ]);
     }

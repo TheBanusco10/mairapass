@@ -64,24 +64,6 @@
                 </div>
             </div>
 
-            @if (!$usuario->isPro)
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Actualiza tu cuenta a PRO</h4>
-                    </div>
-                    <div class="card-body">
-                        <form action="/purchase" method="GET">
-                            @csrf
-                            <h5>¿Quieres tener las ventajas de la cuenta PRO?</h5>
-                            <p>Actualiza ahora tu cuenta para poder añadir contraseñas ilimitadas</p>
-                            <button class="btn btn-success">Actualizar a PRO</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            @endif
-
         </div>
 
 

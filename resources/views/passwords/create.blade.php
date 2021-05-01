@@ -42,7 +42,7 @@
                                 <label for="url_web" class="col-md-4 col-form-label text-md-right">Enlace a la web</label>
 
                                 <div class="col-md-6">
-                                    <input id="url_web" type="text" class="form-control @error('url_web') is-invalid @enderror" name="url_web" value="{{ old('url_web') }}" autocomplete="url_web">
+                                    <input id="url_web" type="text" placeholder="https://ejemplo.com" class="form-control @error('url_web') is-invalid @enderror" name="url_web" value="{{ old('url_web') }}" autocomplete="url_web">
 
                                     @error('url_web')
                                     <span class="invalid-feedback" role="alert">

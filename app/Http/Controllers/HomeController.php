@@ -29,6 +29,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         $user = Auth::user();
 
         $numberPasswords = Password::where('user_id', $user->id)->count();
@@ -45,10 +46,26 @@ class HomeController extends Controller
             $password->password = EncryptionController::decrypt($password->password);
         }
 
+        $buscando = false;
+        $resultados = [];
+
+        if (isset($_GET['search']) && !empty($_GET['q'])) {
+            $buscando = true;
+
+            $name = strtolower($_GET['q']);
+
+            foreach ($user->passwords as $password) {
+                if (str_contains(strtolower($password->web), $name)) array_push($resultados, $password);
+            }
+
+        }
+
         return view('home', [
             'passwords' => $user->passwords,
             'usuario' => Auth::user(),
-            'canAddPasswords' => $canAddPasswords
+            'canAddPasswords' => $canAddPasswords,
+            'resultados' => $resultados,
+            'buscando' => $buscando
         ]);
     }
 

@@ -10,7 +10,7 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-8 mt-3">
                 <div class="card">
                     <div class="card-header">Editar contraseña</div>
 
@@ -37,7 +37,7 @@
                                 <label for="url_web" class="col-md-4 col-form-label text-md-right">Enlace a la web</label>
 
                                 <div class="col-md-6">
-                                    <input id="url_web" type="text" class="form-control @error('url_web') is-invalid @enderror" name="url_web" value="{{ old('url_web') }}" autocomplete="url_web">
+                                    <input id="url_web" type="text" placeholder="https://ejemplo.com" class="form-control @error('url_web') is-invalid @enderror" name="url_web" value="{{ old('url_web') }}" autocomplete="url_web">
 
                                     @error('url_web')
                                     <span class="invalid-feedback" role="alert">
@@ -81,6 +81,66 @@
                                         </button>
                                     </div>
                                 </div>
+
+                                <div class="col-md-4"></div>
+                                <div class="col-md-8 d-flex">
+                                    <div class="col-4">
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked id="mayusculas">
+                                            <label class="form-check-label" for="mayusculas">
+                                                Mayúsculas
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" checked id="minusculas">
+                                            <label class="form-check-label" for="minusculas">
+                                                Minúsculas
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4"></div>
+                                <div class="col-md-8 d-flex">
+                                    <div class="col-4">
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" checked type="checkbox" id="digitos">
+                                            <label class="form-check-label" for="digitos">
+                                                Dígitos
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" checked type="checkbox" id="simbolos">
+                                            <label class="form-check-label" for="simbolos">
+                                                Símbolos
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @if (\Illuminate\Support\Facades\Auth::user()->isPro)
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-8 mt-2">
+                                        <div class="progress" style="width: 73%">
+                                            <div class="progress-bar" id="progresoPassword" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-8 mt-2">
+                                        <p id="textoInformacionPassword"></p>
+                                    </div>
+                                @endif
+
                                 <div class="col-md-4"></div>
                                 <span class="mr-2">6</span>
                                 <input id="inputRange" type="range" min="6" max="12" class="col-md-6 p-0">

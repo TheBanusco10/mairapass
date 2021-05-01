@@ -44,9 +44,26 @@ class PasswordController extends Controller
 
     public function update(Password $password) {
 
-        Password::where('id', $password->id)->update($this->validateForm());
+        if ($this->validateForm()) {
 
-        return redirect(route('home'));
+            request()->merge([
+                'web' => EncryptionController::encrypt(request()->input('web')),
+                'url_web' => EncryptionController::encrypt(request()->input('url_web')),
+                'email' => EncryptionController::encrypt(request()->input('email')),
+                'password' => EncryptionController::encrypt(request()->input('password'))
+
+            ]);
+
+            Password::where('id', $password->id)->update([
+                'web' => request()->input('web'),
+                'url_web' => request()->input('url_web'),
+                'email' => request()->input('email'),
+                'password' => request()->input('password')
+            ]);
+
+            return redirect(route('home'));
+        }
+
 
     }
 
@@ -62,10 +79,11 @@ class PasswordController extends Controller
 
     protected function validateForm(): array
     {
+
         return request()->validate([
             'web' => 'required',
-            'url_web' =>'',
-            'email' => 'required',
+            'url_web' =>'url',
+            'email' => 'required|email',
             'password' => 'required'
         ]);
     }

@@ -2,6 +2,10 @@ $(function () {
 
     $('#generatePassword').click(function () {
 
+        /* 
+        * Comprobamos qué opciones ha marcado el usuario para generar la contraseña
+        * Solo mayúsculas, minúsculas, combinaciones, símbolos...
+        */
         let passwordOptions = checkOptions({
             uppers: $('#mayusculas').prop('checked'),
             lowers: $('#minusculas').prop('checked'),
@@ -9,12 +13,18 @@ $(function () {
             symbols: $('#simbolos').prop('checked'),
         });
 
+        /**
+         * Generamos la contraseña con una longitud y las opciones
+         */
         let password = generatePassword.randomPassword({
             length: parseInt($('#inputRange').val()),
             characters: passwordOptions
         });
 
+        // Mostramos el resultado de la contraseña en el input
         $('#password').val(password);
+
+        // Comprobamos la seguridad de la contraseña
         comprobarPassword(password);
     });
 

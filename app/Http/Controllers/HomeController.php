@@ -62,6 +62,7 @@ class HomeController extends Controller
 
         return view('home', [
             'passwords' => $user->passwords,
+            'credit_cards' => $user->credit_cards,
             'usuario' => Auth::user(),
             'canAddPasswords' => $canAddPasswords,
             'resultados' => $resultados,

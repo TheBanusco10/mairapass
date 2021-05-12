@@ -72,6 +72,8 @@
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 @if (Auth::user()->isPro)
                                     <span class="badge bg-success" style="padding: 5px">PRO</span>
+                                @else
+                                    <span class="badge bg-secondary" style="padding: 5px; color: white">Básico</span>
                                 @endif
                                 {{ Auth::user()->name }}
                             </a>

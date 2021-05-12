@@ -101,7 +101,7 @@
                                                     </svg>
                                                 </button>
 
-                                                <button type="submit" onclick="confirmarEliminarPassword({{ $password }})" title="Borrar contraseña" id="borrarBoton" class="btn btn-outline-danger">
+                                                <button type="submit" onclick="confirmarEliminar({{ $password }}, 'contraseña')" title="Borrar contraseña" id="borrarBoton" class="btn btn-outline-danger">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                                                         <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
@@ -158,7 +158,7 @@
                                                         </svg>
                                                     </button>
 
-                                                    <button type="submit" onclick="confirmarEliminarPassword({{ $resultado }})" title="Borrar contraseña" id="borrarBoton" class="btn btn-outline-danger">
+                                                    <button type="submit" onclick="confirmarEliminar({{ $resultado }}, 'contraseña')" title="Borrar contraseña" id="borrarBoton" class="btn btn-outline-danger">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                                             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                                                             <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
@@ -182,8 +182,8 @@
                                 <div class="col-md-8">
                                     <h1>Tus tarjetas de crédito</h1>
                                     @if ($canAddPasswords)
-                                        <a href="{{ route('createPassword') }}" title="Añadir contraseña" class="btn btn-primary">
-                                            Añadir contraseña
+                                        <a href="{{ route('createCard') }}" title="Añadir tarjeta" class="btn btn-primary">
+                                            Añadir tarjeta
                                         </a>
                                     @else
                                         <p>Actualiza tu cuenta a PRO para añadir más contraseñas</p>
@@ -233,7 +233,7 @@
                                                     <input readonly type="password" id="userPassword" name="{{ $credit_card->id }}" class="form-control" value="{{ $credit_card->ccv }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('editPassword', $credit_card) }}" class="btn btn-outline-success">
+                                                    <a href="{{ route('editCard', $credit_card) }}" class="btn btn-outline-success">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
                                                             <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
                                                             <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
@@ -252,7 +252,7 @@
                                                         </svg>
                                                     </button>
 
-                                                    <button type="submit" onclick="confirmarEliminarPassword({{ $credit_card }})" title="Borrar contraseña" id="borrarBoton" class="btn btn-outline-danger">
+                                                    <button type="submit" onclick="confirmarEliminar({{ $credit_card }}, 'tarjeta')" title="Borrar contraseña" id="borrarBoton" class="btn btn-outline-danger">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                                             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                                                             <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
@@ -288,7 +288,7 @@
                                                     <input readonly type="password" id="userPassword" name="{{ $resultado->id }}" class="form-control" value="{{ $resultado->ccv }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('editPassword', $resultado) }}" class="btn btn-outline-success">
+                                                    <a href="{{ route('editCard', $resultado) }}" class="btn btn-outline-success">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
                                                             <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
                                                             <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
@@ -307,7 +307,7 @@
                                                         </svg>
                                                     </button>
 
-                                                    <button type="submit" onclick="confirmarEliminarPassword({{ $resultado }})" title="Borrar contraseña" id="borrarBoton" class="btn btn-outline-danger">
+                                                    <button type="submit" onclick="confirmarEliminar({{ $resultado }}, 'tarjeta')" title="Borrar contraseña" id="borrarBoton" class="btn btn-outline-danger">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                                             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                                                             <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
@@ -351,25 +351,6 @@
 
                             </form>
                         </div>
-{{--                        @if (!$usuario->isPro)--}}
-{{--                            <div class="col-12">--}}
-{{--                                <div class="card">--}}
-{{--                                    <div class="card-header">--}}
-{{--                                        <h4>Actualiza tu cuenta a PRO</h4>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="card-body">--}}
-{{--                                        <form action="/purchase" method="GET">--}}
-{{--                                            @csrf--}}
-{{--                                            <h5>¿Quieres tener las ventajas de la cuenta PRO?</h5>--}}
-{{--                                            <p>Actualiza ahora tu cuenta para poder añadir contraseñas ilimitadas</p>--}}
-{{--                                            <button class="btn btn-success">Actualizar a PRO</button>--}}
-{{--                                        </form>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        @endif--}}
-
-
                     </div>
                 </div>
             </div>
@@ -386,7 +367,7 @@
 
     {{--Modal para eliminar la contraseña--}}
 
-    <div id="modalEliminarPassword" class="modal fade" tabindex="-1">
+    <div id="modalEliminar" class="modal fade" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -400,7 +381,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger" id="eliminarPasswordBoton">Eliminar</button>
+                    <button type="button" class="btn btn-danger" id="eliminarBotonModal">Eliminar</button>
                 </div>
             </div>
         </div>

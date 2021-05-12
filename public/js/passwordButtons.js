@@ -34,14 +34,15 @@ $(function () {
 
 });
 
-function confirmarEliminarPassword(password) {
+function confirmarEliminar(elemento, tipo) {
 
-    $('#modalEliminarPassword').modal('show');
-    $('#modalBody').text(`¿Está seguro de que desea eliminar la contraseña asociada a ${password.web}?`);
+    $('#modalEliminar').modal('show');
+    $('#modalBody').text(`¿Está seguro de que desea eliminar este elemento?`);
 
-    $('#eliminarPasswordBoton').click(function () {
+    $('#eliminarBotonModal').click(function () {
 
-        $('#formEliminarPassword').prop('action', `/home/delete/${password.id}`);
+        // Comprobamos el tipo del elemento para eliminar el correcto
+        $('#formEliminarPassword').prop('action', tipo === 'contraseña' ? `/home/delete/${elemento.id}` : `/home/delete-card/${elemento.id}`);
         $('#formEliminarPassword').submit();
 
     });

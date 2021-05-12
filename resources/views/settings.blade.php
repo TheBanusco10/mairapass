@@ -10,7 +10,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 mt-5">
                 <h1 class="text-center">Esta es tu configuración, {{ $usuario->name }}.</h1>
             </div>
             <div class="col-12 col-sm-6 mb-2">

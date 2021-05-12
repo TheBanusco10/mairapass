@@ -22,7 +22,9 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 Route::get('/home/create', 'App\Http\Controllers\PasswordController@create')->name('createPassword')->middleware('verified');
+Route::get('/home/create-card', 'App\Http\Controllers\CardController@create')->name('createCard')->middleware('verified');
 Route::get('/home/edit/{password}', 'App\Http\Controllers\PasswordController@edit')->name('editPassword')->middleware('verified');
+Route::get('/home/edit-card/{card}', 'App\Http\Controllers\CardController@edit')->name('editCard')->middleware('verified');
 Route::get('/settings/{user}', 'App\Http\Controllers\HomeController@settings')->name('settings')->middleware('verified');
 Route::get('/purchase', function () {
 
@@ -31,9 +33,12 @@ Route::get('/purchase', function () {
 })->middleware('verified');
 
 Route::post('/create', 'App\Http\Controllers\PasswordController@store')->name('create')->middleware('verified');
+Route::post('/create-card', 'App\Http\Controllers\CardController@store')->name('createCard')->middleware('verified');
 
 Route::put('/update/{password}', 'App\Http\Controllers\PasswordController@update')->name('updatePassword')->middleware('verified');
+Route::put('/update-card/{card}', 'App\Http\Controllers\CardController@update')->name('updateCard')->middleware('verified');
 Route::put('/updateInformation/{user}', 'App\Http\Controllers\UserController@updateInformation')->name('updateInformation')->middleware('verified');
 Route::put('/updatePro/{user}', 'App\Http\Controllers\UserController@updatePro')->name('updatePro')->middleware('verified');
 
-Route::delete('/home/delete/{id}', 'App\Http\Controllers\PasswordController@delete')->name('delete')->middleware('verified');
+Route::delete('/home/delete/{id}', 'App\Http\Controllers\PasswordController@delete')->middleware('verified');
+Route::delete('/home/delete-card/{id}', 'App\Http\Controllers\CardController@delete')->middleware('verified');

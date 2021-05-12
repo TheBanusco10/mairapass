@@ -32,6 +32,7 @@ class HomeController extends Controller
 
         $user = Auth::user();
 
+        // Comprobamos las contraseñas
         $numberPasswords = Password::where('user_id', $user->id)->count();
 
         $canAddPasswords = true;
@@ -44,6 +45,14 @@ class HomeController extends Controller
             $password->url_web = EncryptionController::decrypt($password->url_web);
             $password->email = EncryptionController::decrypt($password->email);
             $password->password = EncryptionController::decrypt($password->password);
+        }
+
+        foreach ($user->credit_cards as $card) {
+
+            $card->title = EncryptionController::decrypt($card->title);
+            $card->card_number = EncryptionController::decrypt($card->card_number);
+            $card->expiration = EncryptionController::decrypt($card->expiration);
+            $card->ccv = EncryptionController::decrypt($card->ccv);
         }
 
         $buscando = false;

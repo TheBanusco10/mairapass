@@ -29,85 +29,145 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('home') }}">
-                    <img src="{{ asset('imgs/logo.jpg') }}" alt="logo" style="height: 48px">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <div class="row w-100">
+                    <div class="col-12 col-md-6">
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                        <a class="navbar-brand" href="{{ route('home') }}">
+                            <img src="{{ asset('imgs/logo.jpg') }}" alt="logo" style="height: 48px">
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-6 d-flex align-items-center">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                    </ul>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    @if (Auth::user()->isPro)
-                                        <span class="badge bg-success" style="padding: 5px">PRO</span>
-                                    @else
-                                        <span class="badge bg-secondary" style="padding: 5px; color: white">Básico</span>
-
+                            <!-- Right Side Of Navbar -->
+                            <ul class="navbar-nav ml-auto">
+                                <!-- Authentication Links -->
+                                @guest
+                                    @if (Route::has('login'))
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
+                                        </li>
                                     @endif
-                                    {{ Auth::user()->name }}
-                                </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('settings', Auth::user()->id) }}">
-                                        {{ __('Configuración') }}
-                                    </a>
+                                    @if (Route::has('register'))
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
+                                        </li>
+                                    @endif
+                                @else
+                                    <li class="nav-item dropdown">
 
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                            @if (Auth::user()->isPro)
+                                                <span class="badge bg-success" style="padding: 5px">PRO</span>
+                                            @else
+                                                <span class="badge bg-secondary" style="padding: 5px; color: white">Básico</span>
+
+                                            @endif
+                                            {{ Auth::user()->name }}
+                                        </a>
+
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="{{ route('settings', Auth::user()->id) }}">
+                                                {{ __('Configuración') }}
+                                            </a>
+
+                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                               onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Cerrar sesión') }}
+                                                {{ __('Cerrar sesión') }}
 
-                                    </a>
+                                            </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                @csrf
+                                            </form>
+                                        </div>
+                                    </li>
+                                @endguest
+                            </ul>
+                        </div>
+
+                    </div>
                 </div>
+
+
+
             </div>
         </nav>
+{{--        <nav class="navbar navbar-collapse-md navbar-light bg-white shadow-sm">--}}
+{{--            <div class="container">--}}
+{{--                <a class="navbar-brand" href="{{ route('home') }}">--}}
+{{--                    <img src="{{ asset('imgs/logo.jpg') }}" alt="logo" style="height: 48px">--}}
+{{--                </a>--}}
+{{--                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">--}}
+{{--                    <span class="navbar-toggler-icon"></span>--}}
+{{--                </button>--}}
+
+{{--                <div class="collapse navbar-collapse" id="navbarSupportedContent">--}}
+{{--                    <!-- Left Side Of Navbar -->--}}
+{{--                    <ul class="navbar-nav mr-auto">--}}
+
+{{--                    </ul>--}}
+
+{{--                    <!-- Right Side Of Navbar -->--}}
+{{--                    <ul class="navbar-nav ml-auto">--}}
+{{--                        <!-- Authentication Links -->--}}
+{{--                        @guest--}}
+{{--                            @if (Route::has('login'))--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>--}}
+{{--                                </li>--}}
+{{--                            @endif--}}
+
+{{--                            @if (Route::has('register'))--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>--}}
+{{--                                </li>--}}
+{{--                            @endif--}}
+{{--                        @else--}}
+{{--                            <li class="nav-item dropdown">--}}
+
+{{--                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>--}}
+{{--                                    @if (Auth::user()->isPro)--}}
+{{--                                        <span class="badge bg-success" style="padding: 5px">PRO</span>--}}
+{{--                                    @else--}}
+{{--                                        <span class="badge bg-secondary" style="padding: 5px; color: white">Básico</span>--}}
+
+{{--                                    @endif--}}
+{{--                                    {{ Auth::user()->name }}--}}
+{{--                                </a>--}}
+
+{{--                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">--}}
+{{--                                    <a class="dropdown-item" href="{{ route('settings', Auth::user()->id) }}">--}}
+{{--                                        {{ __('Configuración') }}--}}
+{{--                                    </a>--}}
+
+{{--                                    <a class="dropdown-item" href="{{ route('logout') }}"--}}
+{{--                                       onclick="event.preventDefault();--}}
+{{--                                                     document.getElementById('logout-form').submit();">--}}
+{{--                                        {{ __('Cerrar sesión') }}--}}
+
+{{--                                    </a>--}}
+
+{{--                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">--}}
+{{--                                        @csrf--}}
+{{--                                    </form>--}}
+{{--                                </div>--}}
+{{--                            </li>--}}
+{{--                        @endguest--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </nav>--}}
 
         <main>
             @yield('content')
         </main>
 
-{{--        <footer>--}}
-{{--            <div class="container">--}}
-{{--                <div class="row">--}}
-{{--                    <div class="col-12">--}}
-{{--                        <h4>Footer</h4>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </footer>--}}
     </div>
 
     @yield('paypal')

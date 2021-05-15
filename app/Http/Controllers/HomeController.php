@@ -55,18 +55,29 @@ class HomeController extends Controller
             $card->ccv = EncryptionController::decrypt($card->ccv);
         }
 
-        $buscando = false;
+        $buscandoPassword = false;
+        $buscandoCard = false;
         $resultados = [];
 
-        if (isset($_GET['search']) && !empty($_GET['q'])) {
-            $buscando = true;
+//        if (isset($_GET['searchPassword']) && !empty($_GET['q'])) {
+//            $buscandoPassword = true;
+//
+//            $name = strtolower($_GET['q']);
+//
+//            foreach ($user->passwords as $password) {
+//                if (str_contains(strtolower($password->web), $name)) array_push($resultados, $password);
+//            }
+//
+//        }
 
-            $name = strtolower($_GET['q']);
+        if (isset($_GET['searchPassword']) && !empty($_GET['q'])) {
 
-            foreach ($user->passwords as $password) {
-                if (str_contains(strtolower($password->web), $name)) array_push($resultados, $password);
-            }
+            $buscandoPassword = true;
+            $resultados = $this->search($user->passwords, 'web');
 
+        }else if (isset($_GET['searchCard']) && !empty($_GET['q'])) {
+            $buscandoCard = true;
+            $resultados = $this->search($user->credit_cards, 'title');
         }
 
         return view('home', [
@@ -75,7 +86,8 @@ class HomeController extends Controller
             'usuario' => Auth::user(),
             'canAddPasswords' => $canAddPasswords,
             'resultados' => $resultados,
-            'buscando' => $buscando
+            'buscandoPassword' => $buscandoPassword,
+            'buscandoCard' => $buscandoCard
         ]);
     }
 
@@ -89,5 +101,26 @@ class HomeController extends Controller
             'usuario' => $user
         ]);
 
+    }
+
+    /**
+     * @description Función que devuelve un array con los resultados de la búsqueda
+     * @param $elements El array en el que se va a buscar
+     * @param $match Qué campo del array tiene que coincidir con la búsqueda para que sea válido (Ej: title, web...)
+     * @return array
+     */
+    function search($elements, $match) {
+
+        $name = strtolower($_GET['q']);
+
+        $resultados = [];
+
+        foreach ($elements as $element) {
+
+            if (str_contains(strtolower($element[$match]), $name)) array_push($resultados, $element);
+
+        }
+
+        return $resultados;
     }
 }

@@ -1,11 +1,11 @@
 $(function () {
 
+    accessibility();
     getImage();
 
    $('#cambiarFondo').click(function () {
 
        setImage($('#urlImagen').val());
-
 
    });
 
@@ -17,21 +17,72 @@ $(function () {
 
 });
 
+/**
+ * @description Atajos de teclado para una mejor accesibilidad
+ */
+function accessibility() {
+
+    $(document).keypress(function (e) {
+        let triggerEl = '';
+
+        let code = e.keyCode || e.which;
+
+        console.log(code);
+
+        switch (code) {
+
+            // Si pulsamos shift + 1
+            case 33:
+                triggerEl = $('#list-tab a[href="#contraseñas"]');
+                $(triggerEl).tab('show');
+                break;
+
+            // Si pulsamos shift + 2
+            case 34:
+                triggerEl = $('#list-tab a[href="#tarjetas"]');
+                $(triggerEl).tab('show');
+                break;
+
+            // Si pulsamos shift + 3
+            case 35:
+                triggerEl = $('#list-tab a[href="#pro"]');
+                $(triggerEl).tab('show');
+                break;
+
+            // Si pulsamos shift + s
+            case 83:
+                triggerEl = $('#buscarContraseña');
+                $(triggerEl).focus();
+                break;
+
+            // Si pulsamos shift + a
+            case 65:
+                let elements = $('.añadir');
+                console.log(elements);
+                break;
+
+        }
+
+
+    });
+
+}
+
+/**
+ * @description Guardamos la URL en LocalStorage
+ * @param url
+ */
 function setImage(url) {
     window.localStorage.setItem('backgroundImage', url);
     window.location.reload();
 }
 
+/**
+ * @description Tomamos la URL y la añadimos al css de la etiqueta main
+ */
 function getImage() {
-    // let image = window.localStorage.backgroundImage || '../imgs/passwordBackground2.jpg';
-    // $('main').addClass('bg');
+
     let image = window.localStorage.backgroundImage;
+    image ? $('main').css('background-image', `url("${image}")`) : $('main').css('background-image', `url("../imgs/fondo1.jpg")`);
 
-    if (!image) {
-        $('main').addClass('defaultBg');
-    }else {
-
-        $('main').removeClass('defaultBg');
-        $('main').css('background-image', `url("${image}")`);
-    }
 }

@@ -1,9 +1,16 @@
 body {
-    background-image: url("../imgs/fondo1.jpg");
+
     background-repeat: no-repeat;
     background-size: cover;
 
     height: 100vh;
+}
+
+.card {
+    border: none !important;
+    background-color: rgba(0, 0, 0, 0.7) !important;
+
+    color: white;
 }
 
 #main {
@@ -15,4 +22,10 @@ body {
 
 .headerTitle {
     font-size: 25px;
+
+    background: rgb(95,44,130);
+    background: -moz-linear-gradient(141deg, rgba(95,44,130,1) 0%, rgba(73,160,157,1) 100%);
+    background: -webkit-linear-gradient(141deg, rgba(95,44,130,1) 0%, rgba(73,160,157,1) 100%);
+    background: linear-gradient(141deg, rgba(95,44,130,1) 0%, rgba(73,160,157,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5f2c82",endColorstr="#49a09d",GradientType=1);
 }

@@ -1,11 +1,17 @@
 @extends('layouts.app')
 
+@section('estilos')
+
+    <link rel="stylesheet" href="./css/login.css">
+
+@endsection
+
 @section('content')
-<div class="container">
+<div class="container" id="main">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Registro') }}</div>
+                <div class="card-header bg-success text-center text-light headerTitle">{{ __('Registro') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">

@@ -1,8 +1,11 @@
 $(function () {
 
+    // Si estamos editando la contraseña la comprobamos para recargar su nivel de seguridad
+    $('#password').val().length > 0 ? comprobarPassword($('#password').val()) : null;
+
     $('#generatePassword').click(function () {
 
-        /* 
+        /*
         * Comprobamos qué opciones ha marcado el usuario para generar la contraseña
         * Solo mayúsculas, minúsculas, combinaciones, símbolos...
         */
@@ -90,20 +93,5 @@ function checkOptions(values) {
     if (values.symbols) options.push(generatePassword.symbols);
 
     return options;
-
-}
-
-function rand(length) {
-
-    let string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz-./~$#+';
-
-    let password = '';
-
-    for (let i = 0; i < length; i++) {
-
-        password += string.charAt(Math.random() * string.length);
-    }
-
-    return password;
 
 }

@@ -1,11 +1,9 @@
 h1 {
-    /*color: white;*/
-    color: rgba(0, 0, 0, .6);
+    color: black;
 }
 
 main {
 
-    background-image: url("../imgs/passwordBackground2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 

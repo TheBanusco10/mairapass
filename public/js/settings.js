@@ -1,7 +1,8 @@
 $(function () {
 
-    accessibility();
     getImage();
+    accessibility();
+    checkAlert();
 
    $('#cambiarFondo').click(function () {
 
@@ -85,4 +86,15 @@ function getImage() {
     let image = window.localStorage.backgroundImage;
     image ? $('main').css('background-image', `url("${image}")`) : $('main').css('background-image', `url("../imgs/fondo1.jpg")`);
 
+}
+
+/**
+ * @description Comprobamos si se ha mostrado la alerta y la ocultamos a los 3 segundos
+ */
+function checkAlert() {
+    if ($('#alerta').css('display') != 'none') {
+        setTimeout(() => {
+            $('#alerta').removeClass().addClass('quitarAlerta');
+        }, 3000);
+    }
 }

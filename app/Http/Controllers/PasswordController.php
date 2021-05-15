@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\EncryptionController;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Password;
 
@@ -12,7 +13,7 @@ class PasswordController extends Controller
         return view('passwords.create');
     }
 
-    public function store() {
+    public function store(Request $request) {
 
 
         $password = new Password($this->validateForm());
@@ -24,6 +25,9 @@ class PasswordController extends Controller
         $password->password = EncryptionController::encrypt($password->password);
 
         $password->save();
+
+        Alert::storeAlert('Contraseña añadida correctamente');
+
 
         return redirect(route('home'));
 
@@ -61,6 +65,8 @@ class PasswordController extends Controller
                 'password' => request()->input('password')
             ]);
 
+            Alert::storeAlert('Contraseña editada correctamente');
+
             return redirect(route('home'));
         }
 
@@ -72,6 +78,9 @@ class PasswordController extends Controller
         $password = Password::findOrFail($id);
 
         $password->delete();
+
+        Alert::storeAlert('Contraseña eliminada correctamente');
+
 
         return redirect(route('home'));
 

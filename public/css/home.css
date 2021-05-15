@@ -11,6 +11,57 @@ main {
     height: 100vh;
 }
 
+#alerta {
+    width: 400px;
+    padding: 10px;
+    background-color: #CFF4FC;
+    position: absolute;
+    border-radius: 4px;
+    margin: 10px;
+
+    color: #055160;
+
+    z-index: 2;
+
+}
+
+.mostrarAlerta {
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        right: -10%;
+    }
+    to {
+        opacity: 1;
+        right: 0;
+    }
+}
+
+.quitarAlerta {
+    animation: fadeOut 1s ease forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        right: 0;
+    }
+    to {
+        opacity: 0;
+        right: 0;
+        display: none;
+    }
+}
+
+#alerta p {
+
+    margin: 0;
+
+}
+
 .columnaOpciones {
     height: 100vh;
     padding: 0;
@@ -54,17 +105,6 @@ main {
     border-radius: 4px;
 
     box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, .5);
-}
-
-footer {
-    background-color: #2d2d2d;
-    height: 80px;
-
-    color: white;
-
-    padding: 10px;
-
-    text-align: center;
 }
 
 .defaultBg {

@@ -24,6 +24,9 @@ class CardController extends Controller
 
         $card->save();
 
+        Alert::storeAlert('Tarjeta de crédito añadida correctamente');
+
+
         return redirect(route('home'));
 
     }
@@ -60,6 +63,9 @@ class CardController extends Controller
                 'ccv' => request()->input('ccv')
             ]);
 
+            Alert::storeAlert('Tarjeta de crédito editada correctamente');
+
+
             return redirect(route('home'));
         }
 
@@ -71,6 +77,8 @@ class CardController extends Controller
         $card = Card::findOrFail($id);
 
         $card->delete();
+
+        Alert::storeAlert('Tarjeta de crédito eliminada correctamente');
 
         return redirect(route('home'));
 

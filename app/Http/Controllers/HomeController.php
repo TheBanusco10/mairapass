@@ -27,7 +27,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
 
         $user = Auth::user();
@@ -59,17 +59,6 @@ class HomeController extends Controller
         $buscandoCard = false;
         $resultados = [];
 
-//        if (isset($_GET['searchPassword']) && !empty($_GET['q'])) {
-//            $buscandoPassword = true;
-//
-//            $name = strtolower($_GET['q']);
-//
-//            foreach ($user->passwords as $password) {
-//                if (str_contains(strtolower($password->web), $name)) array_push($resultados, $password);
-//            }
-//
-//        }
-
         if (isset($_GET['searchPassword']) && !empty($_GET['q'])) {
 
             $buscandoPassword = true;
@@ -87,7 +76,8 @@ class HomeController extends Controller
             'canAddPasswords' => $canAddPasswords,
             'resultados' => $resultados,
             'buscandoPassword' => $buscandoPassword,
-            'buscandoCard' => $buscandoCard
+            'buscandoCard' => $buscandoCard,
+            'request' => $request
         ]);
     }
 

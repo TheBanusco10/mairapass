@@ -1,11 +1,17 @@
 @extends('layouts.app')
 
+@section('estilos')
+
+    <link rel="stylesheet" href="./css/login.css">
+
+@endsection
+
 @section('content')
-<div class="container">
+<div class="container" id="main">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Verifica tu correo electrónico para utilizar la aplicación') }}</div>
+                <div class="card-header headerTitle">{{ __('Verifica tu correo electrónico para utilizar la aplicación') }}</div>
 
                 <div class="card-body">
                     @if (session('resent'))

@@ -8,10 +8,29 @@
 
 @endsection
 
+<?php
+
+    use App\Http\Controllers\Alert;
+
+    $message = '';
+
+    if (Alert::exists('alert')) {
+        $message = Alert::getAlert('alert');
+        Alert::deleteAlert('alert');
+    }
+
+?>
+
 @section('content')
     <div class="container-fluid">
         <div class="row">
-
+            <div class="col-12">
+                @if (!empty($message))
+                    <div id="alerta" class="mostrarAlerta">
+                        <p id="mensajeAlerta"><?= $message ?></p>
+                    </div>
+                @endif
+            </div>
             <div class="col-12 col-md-2 columnaOpciones">
                 <div class="list-group" id="list-tab" role="tablist">
                     <a class="list-group-item list-group-item-action active" data-bs-toggle="list" href="#contraseñas" role="tab" aria-controls="contraseñas">Contraseñas</a>
@@ -656,14 +675,14 @@
                 <div class="modal-header">
                     <h5 class="modal-title">Confirmar eliminar contraseña</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true" data-bs-dismiss="modal">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <p id="modalBody"></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-danger" id="eliminarBotonModal">Eliminar</button>
                 </div>
             </div>

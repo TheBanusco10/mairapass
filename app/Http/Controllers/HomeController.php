@@ -87,6 +87,12 @@ class HomeController extends Controller
 
     public function settings(User $user) {
 
+        // Si intentamos modificar otro usuario que no sea el nuestro, mostramos la configuración del usuario conectado
+        if (Auth::user()->id != $user->id)
+            return view('settings', [
+                'usuario' => Auth::user()
+            ]);
+
         return view('settings', [
             'usuario' => $user
         ]);

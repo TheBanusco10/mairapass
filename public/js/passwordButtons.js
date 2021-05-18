@@ -3,15 +3,14 @@ $(function () {
     // Copiar contraseña
     $('.copyPassword').each(function () {
         $(this).click(function () {
-
-            let id = $(this).data('id');
-
-            $(`input[name='${id}']`).prop('type', 'text');
-            $(`input[name='${id}']`).select();
-            document.execCommand("copy");
-            $(`input[name='${id}']`).prop('type', 'password');
+            copiarContraseña($(this).data('id'));
         });
     });
+
+    // Copiar contraseña al hacer click en el input
+    $('input[type="password"]').click(function () {
+        copiarContraseña($(this).data('id'));
+    })
 
     // Mostras contraseña
     let mostrado = false;
@@ -33,6 +32,13 @@ $(function () {
     });
 
 });
+
+function copiarContraseña(id) {
+    $(`input[name='${id}']`).prop('type', 'text');
+    $(`input[name='${id}']`).select();
+    document.execCommand("copy");
+    $(`input[name='${id}']`).prop('type', 'password');
+}
 
 function confirmarEliminar(elemento, tipo) {
 

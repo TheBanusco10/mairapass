@@ -83,8 +83,8 @@
                                 </div>
 
                                 <div class="col-md-4"></div>
-                                <div class="col-md-8 d-flex">
-                                    <div class="col-4">
+                                <div class="col-md-8 col-12 d-flex" style="flex-wrap: wrap">
+                                    <div class="col-md-4 col-12">
 
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" checked id="mayusculas">
@@ -94,7 +94,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-md-4 col-12">
 
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" checked id="minusculas">
@@ -106,9 +106,8 @@
                                 </div>
 
                                 <div class="col-md-4"></div>
-                                <div class="col-md-8 d-flex">
-                                    <div class="col-4">
-
+                                <div class="col-md-8 col-12 d-flex" style="flex-wrap: wrap">
+                                    <div class="col-md-4 col-12">
                                         <div class="form-check">
                                             <input class="form-check-input" checked type="checkbox" id="digitos">
                                             <label class="form-check-label" for="digitos">
@@ -117,7 +116,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-md-4 col-12">
 
                                         <div class="form-check">
                                             <input class="form-check-input" checked type="checkbox" id="simbolos">

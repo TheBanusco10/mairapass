@@ -14,14 +14,14 @@ main {
 #alerta {
     width: 400px;
     padding: 10px;
-    background-color: #CFF4FC;
+    /*background-color: #CFF4FC;*/
     position: absolute;
     border-radius: 4px;
     margin: 10px;
 
-    color: #055160;
+    /*color: #055160;*/
 
-    z-index: 2;
+    z-index: 3;
 
 }
 
@@ -229,6 +229,13 @@ main {
 
     input {
         width: 100%;
+    }
+
+    #alerta {
+
+        width: 100%;
+        margin: 1rem 0 0 0;
+        border-radius: 0;
     }
 
 }

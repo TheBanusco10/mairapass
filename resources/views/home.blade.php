@@ -13,9 +13,11 @@
     use App\Http\Controllers\Alert;
 
     $message = '';
+    $type = '';
 
     if (Alert::exists('alert')) {
-        $message = Alert::getAlert('alert');
+        $message = Alert::getAlert('alert')['message'];
+        $type = Alert::getAlert('alert')['type'];
         Alert::deleteAlert('alert');
     }
 
@@ -26,7 +28,7 @@
         <div class="row">
             <div class="col-12">
                 @if (!empty($message))
-                    <div id="alerta" class="mostrarAlerta">
+                    <div id="alerta" class="mostrarAlerta alert alert-<?= $type ?>">
                         <p id="mensajeAlerta"><?= $message ?></p>
                     </div>
                 @endif
@@ -100,13 +102,13 @@
                                             </td>
                                             <td> {{$password->email}} </td>
                                             <td>
-                                                <input readonly type="password" id="userPassword" name="{{ $password->id }}" class="form-control" value="{{ $password->password }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
+                                                <input data-id="{{ $password->id }}" readonly type="password" id="userPassword" name="{{ $password->id }}" class="form-control" value="{{ $password->password }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
                                             </td>
                                             <td>
-                                                <a href="{{ route('editPassword', $password) }}" class="btn btn-outline-success">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
-                                                        <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
-                                                        <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                                                <a title="Editar" href="{{ route('editPassword', $password) }}" class="btn btn-outline-success">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                                     </svg>
                                                 </a>
                                                 <button title="Copiar" class="btn btn-outline-secondary copyPassword" data-id="{{ $password->id }}">
@@ -158,7 +160,7 @@
                                                 </td>
                                                 <td> {{$resultado->email}} </td>
                                                 <td>
-                                                    <input readonly type="password" id="userPassword" name="{{ $resultado->id }}" class="form-control" value="{{ $resultado->password }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
+                                                    <input data-id="{{ $resultado->id }}" readonly type="password" id="userPassword" name="{{ $resultado->id }}" class="form-control" value="{{ $resultado->password }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
                                                 </td>
                                                 <td>
                                                     <a href="{{ route('editPassword', $resultado) }}" class="btn btn-outline-success">
@@ -243,13 +245,13 @@
                                                     </a>
                                                 </h4>
                                                 <p> {{$password->email}} </p>
-                                                <input readonly type="password" id="userPassword" name="{{ $password->id }}" class="form-control" value="{{ $password->password }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
+                                                <input data-id="{{ $password->id }}" readonly type="password" id="userPassword" name="{{ $password->id }}" class="form-control" value="{{ $password->password }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
                                                 <div class="acciones">
 
-                                                    <a href="{{ route('editPassword', $password) }}" class="btn btn-outline-success">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
-                                                            <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
-                                                            <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                                                    <a title="Editar" href="{{ route('editPassword', $password) }}" class="btn btn-outline-success">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                                         </svg>
                                                     </a>
                                                     <button title="Copiar" class="btn btn-outline-secondary copyPassword" data-id="{{ $password->id }}">
@@ -289,13 +291,13 @@
                                                 </a>
                                             </h4>
                                             <p> {{$password->email}} </p>
-                                            <input readonly type="password" id="userPassword" name="{{ $password->id }}" class="form-control" value="{{ $password->password }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
+                                            <input data-id="{{ $password->id }}" readonly type="password" id="userPassword" name="{{ $password->id }}" class="form-control" value="{{ $password->password }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
                                             <div class="acciones">
 
-                                                <a href="{{ route('editPassword', $password) }}" class="btn btn-outline-success">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
-                                                        <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
-                                                        <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                                                <a title="Editar" href="{{ route('editPassword', $password) }}" class="btn btn-outline-success">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                                     </svg>
                                                 </a>
                                                 <button title="Copiar" class="btn btn-outline-secondary copyPassword" data-id="{{ $password->id }}">
@@ -387,10 +389,10 @@
                                                         <input readonly type="password" id="userPassword" name="{{ $credit_card->id }}" class="form-control" value="{{ $credit_card->ccv }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
                                                     </td>
                                                     <td>
-                                                        <a href="{{ route('editCard', $credit_card) }}" class="btn btn-outline-success">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
-                                                                <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
-                                                                <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                                                        <a title="Editar" href="{{ route('editCard', $credit_card) }}" class="btn btn-outline-success">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                                             </svg>
                                                         </a>
                                                         <button title="Copiar" class="btn btn-outline-secondary copyPassword" data-id="{{ $credit_card->id }}">
@@ -445,10 +447,10 @@
                                                         <input readonly type="password" id="userPassword" name="{{ $resultado->id }}" class="form-control" value="{{ $resultado->ccv }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
                                                     </td>
                                                     <td>
-                                                        <a href="{{ route('editCard', $resultado) }}" class="btn btn-outline-success">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
-                                                                <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
-                                                                <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                                                        <a title="Editar" href="{{ route('editCard', $resultado) }}" class="btn btn-outline-success">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                                             </svg>
                                                         </a>
                                                         <button title="Copiar" class="btn btn-outline-secondary copyPassword" data-id="{{ $resultado->id }}">
@@ -525,10 +527,10 @@
                                                 <p>{{$credit_card->expiration}}</p>
                                                 <input readonly type="password" id="userPassword" name="{{ $credit_card->id }}" class="form-control" value="{{ $credit_card->ccv }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
                                                 <div class="acciones">
-                                                    <a href="{{ route('editCard', $credit_card) }}" class="btn btn-outline-success">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
-                                                            <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
-                                                            <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                                                    <a title="Editar" href="{{ route('editCard', $credit_card) }}" class="btn btn-outline-success">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                                         </svg>
                                                     </a>
                                                     <button title="Copiar" class="btn btn-outline-secondary copyPassword" data-id="{{ $credit_card->id }}">
@@ -570,10 +572,10 @@
                                             <input readonly type="password" id="userPassword" name="{{ $resultado->id }}" class="form-control" value="{{ $resultado->ccv }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
                                             <div class="acciones">
 
-                                                <a href="{{ route('editCard', $resultado) }}" class="btn btn-outline-success">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
-                                                        <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
-                                                        <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+                                                <a title="Editar" href="{{ route('editCard', $resultado) }}" class="btn btn-outline-success">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                                     </svg>
                                                 </a>
                                                 <button title="Copiar" class="btn btn-outline-secondary copyPassword" data-id="{{ $resultado->id }}">
@@ -615,7 +617,9 @@
                                 </div>
                             </div>
                         @endif
+
                     </div>
+
                     <div class="tab-pane fade" id="pro" role="tabpanel" aria-labelledby="pro">
                         <div class="col-12">
                             <form action="/purchase" class="d-flex justify-content-center" method="GET">
@@ -654,7 +658,6 @@
                             </form>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>

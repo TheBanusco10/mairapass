@@ -1,17 +1,16 @@
 @extends('layouts.app')
 
-{{--@section('scripts')--}}
-{{--    <script--}}
-{{--        src="https://www.paypal.com/sdk/js?client-id=AVfdp_rx6nhe0KGuf5_AKs-qXGlKmZdyzxYeTILLkUOt35nVHG0YVeT7sgeO8po7BFULKUkXnVS6JMld"> // Required. Replace YOUR_CLIENT_ID with your sandbox client ID.--}}
-{{--    </script>--}}
-{{--@endsection--}}
-
 @section('content')
 
     <div class="container">
         <div class="row">
+            <div class="row mt-4">
+                <div class="col-12">
+                    <a href="{{ route('home') }}" class="btn btn-secondary">Volver</a>
+                </div>
+            </div>
             <div class="col-12 mt-5">
-                <h1 class="text-center">Esta es tu configuración, {{ $usuario->name }}.</h1>
+                <h1 class="text-center text-light">Esta es tu configuración, {{ $usuario->name }}.</h1>
             </div>
             <div class="col-12 col-sm-6 mb-2">
                 <div class="card">

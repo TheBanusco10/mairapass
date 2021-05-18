@@ -45,7 +45,7 @@ function accessibility() {
                 break;
 
             // Si pulsamos shift + 3
-            case 35:
+            case 183:
                 triggerEl = $('#list-tab a[href="#pro"]');
                 $(triggerEl).tab('show');
                 break;
@@ -94,7 +94,7 @@ function getImage() {
 function checkAlert() {
     if ($('#alerta').css('display') != 'none') {
         setTimeout(() => {
-            $('#alerta').removeClass().addClass('quitarAlerta');
+            $('#alerta').removeClass('mostrarAlerta').addClass('quitarAlerta');
         }, 3000);
     }
 }

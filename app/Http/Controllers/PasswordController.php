@@ -6,6 +6,7 @@ use App\Http\Controllers\EncryptionController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Password;
+use Illuminate\Support\Facades\Auth;
 
 class PasswordController extends Controller
 {
@@ -34,6 +35,11 @@ class PasswordController extends Controller
     }
 
     public function edit(Password $password) {
+
+        if ($password->user_id != Auth::user()->id) {
+            Alert::storeAlert('No tienes permisos para realizar esta acción', 'danger');
+            return redirect(route('home'));
+        }
 
         $password->web = EncryptionController::decrypt($password->web);
         $password->url_web = EncryptionController::decrypt($password->url_web);

@@ -4,10 +4,8 @@
 
     <div class="container">
         <div class="row">
-            <div class="row mt-4">
-                <div class="col-12">
-                    <a href="{{ route('home') }}" class="btn btn-secondary">Volver</a>
-                </div>
+            <div class="col-12 mt-5">
+                <a href="{{ route('home') }}" class="btn btn-secondary">Volver</a>
             </div>
             <div class="col-12 mt-5">
                 <h1 class="text-center text-light">Esta es tu configuración, {{ $usuario->name }}.</h1>

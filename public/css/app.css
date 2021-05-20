@@ -52,6 +52,8 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+h1,p{margin:0 0 1em}
+
 article,
 aside,
 figcaption,

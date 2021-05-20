@@ -30,7 +30,7 @@
                                 <label for="card_number" class="col-md-4 col-form-label text-md-right">Número de tarjeta de crédito</label>
 
                                 <div class="col-md-6">
-                                    <input id="card_number" type="text" placeholder="1234 5678 9123 4567" class="form-control @error('card_number') is-invalid @enderror" name="card_number" value="{{ old('card_number') }}" autocomplete="card_number">
+                                    <input id="card_number" pattern="[0-9]{4}\s[0-9]{4}\s[0-9]{4}\s[0-9]{4}" type="text" placeholder="1234 5678 9123 4567" class="form-control @error('card_number') is-invalid @enderror" name="card_number" value="{{ old('card_number') }}" autocomplete="card_number">
 
                                     @error('card_number')
                                     <span class="invalid-feedback" role="alert">

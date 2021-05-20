@@ -386,7 +386,7 @@
                                                     <td> {{$credit_card->card_number}} </td>
                                                     <td> {{$credit_card->expiration}} </td>
                                                     <td>
-                                                        <input readonly type="password" id="userPassword" name="{{ $credit_card->id }}" class="form-control" value="{{ $credit_card->ccv }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
+                                                        <input data-id="{{ $credit_card->id }}" readonly type="password" id="userPassword" name="{{ $credit_card->id }}" class="form-control" value="{{ $credit_card->ccv }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
                                                     </td>
                                                     <td>
                                                         <a title="Editar" href="{{ route('editCard', $credit_card) }}" class="btn btn-outline-success">
@@ -617,9 +617,6 @@
                                 </div>
                             </div>
                         @endif
-
-                    </div>
-
                     <div class="tab-pane fade" id="pro" role="tabpanel" aria-labelledby="pro">
                         <div class="col-12">
                             <form action="/purchase" class="d-flex justify-content-center" method="GET">
@@ -658,6 +655,8 @@
                             </form>
                         </div>
                     </div>
+                </div>
+
             </div>
         </div>
     </div>

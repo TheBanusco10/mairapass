@@ -14,12 +14,9 @@ main {
 #alerta {
     width: 400px;
     padding: 10px;
-    /*background-color: #CFF4FC;*/
     position: absolute;
     border-radius: 4px;
     margin: 10px;
-
-    /*color: #055160;*/
 
     z-index: 3;
 
@@ -183,6 +180,17 @@ main {
 
 }
 
+#cardType {
+
+    display: flex;
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    font-size: 2rem;
+
+}
+
 @media (min-width: 1200px) {
     #contraseñas {
         height: 470px;
@@ -222,6 +230,14 @@ main {
 
     .columnaOpciones {
         height: auto;
+    }
+
+    #cardType {
+
+        width: 100%;
+
+        justify-content: center;
+
     }
 }
 

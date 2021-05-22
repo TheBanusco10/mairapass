@@ -31,20 +31,8 @@ $(function () {
         comprobarPassword(password);
     });
 
-    // Mostras contraseña
-    let mostrado = false;
 
-    $('.showPassword').click(function () {
-
-        if (!mostrado) {
-            $('#password').prop('type', 'text');
-            mostrado = true;
-        }
-        else {
-            $('#password').prop('type', 'password');
-            mostrado = false;
-        }
-    });
+    comprobarMostrarCampo('#password');
 
     $('#password').keyup(function () {
 

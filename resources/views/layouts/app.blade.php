@@ -13,6 +13,8 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/settings.js') }}"></script>
+    <script src="{{ asset('js/functions.js')  }}"></script>
+    <script src="https://kit.fontawesome.com/04702df722.js" crossorigin="anonymous"></script>
 
     @yield('scripts')
 

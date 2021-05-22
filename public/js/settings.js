@@ -4,7 +4,8 @@ $(function () {
     accessibility();
     checkAlert();
 
-   $('#cambiarFondo').click(function () {
+
+    $('#cambiarFondo').click(function () {
 
        setImage($('#urlImagen').val());
 
@@ -52,7 +53,8 @@ function accessibility() {
 
             // Si pulsamos shift + s
             case 83:
-                triggerEl = $('#buscarContraseña');
+                if ($('#contraseñas').css('display') === 'none') triggerEl = $('#buscarTarjeta');
+                else triggerEl = $('#buscarContraseña');
                 $(triggerEl).focus();
                 break;
 

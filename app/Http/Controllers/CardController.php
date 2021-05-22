@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Card;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CardController extends Controller
 {
@@ -32,6 +33,11 @@ class CardController extends Controller
     }
 
     public function edit(Card $card) {
+
+        if ($card->user_id != Auth::user()->id) {
+            Alert::storeAlert('No tienes permisos para realizar esta acción', 'danger');
+            return redirect(route('home'));
+        }
 
         $card->title = EncryptionController::decrypt($card->title);
         $card->card_number = EncryptionController::decrypt($card->card_number);
@@ -75,6 +81,11 @@ class CardController extends Controller
     public function delete($id) {
 
         $card = Card::findOrFail($id);
+
+        if ($card->user_id != Auth::user()->id) {
+            Alert::storeAlert('No tienes permisos para realizar esta acción', 'danger');
+            return redirect(route('home'));
+        }
 
         $card->delete();
 

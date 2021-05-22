@@ -48,7 +48,7 @@
                                 <label for="expiration" class="col-md-4 col-form-label text-md-right">Caducidad</label>
 
                                 <div class="col-md-6">
-                                    <input id="expiration" type="text" placeholder="MM/YYYY" pattern="[0-9]{2}/[0-9]{2}" class="form-control @error('expiration') is-invalid @enderror" name="expiration" value="{{ old('expiration') }}" required autocomplete="expiration">
+                                    <input id="expiration" type="text" placeholder="MM/YYYY" pattern="[0-9]{2}/[0-9]{4}" class="form-control @error('expiration') is-invalid @enderror" name="expiration" value="{{ old('expiration') }}" required autocomplete="expiration">
 
                                     @error('expiration')
                                     <span class="invalid-feedback" role="alert">

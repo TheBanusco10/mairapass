@@ -40,7 +40,7 @@ function copiarContraseña(id) {
     $(`input[name='${id}']`).prop('type', 'password');
 }
 
-function confirmarEliminar(elemento, tipo) {
+function confirmarEliminar(id, tipo) {
 
     $('#modalEliminar').modal('show');
     $('#modalBody').text(`¿Está seguro de que desea eliminar este elemento?`);
@@ -48,7 +48,7 @@ function confirmarEliminar(elemento, tipo) {
     $('#eliminarBotonModal').click(function () {
 
         // Comprobamos el tipo del elemento para eliminar el correcto
-        $('#formEliminarPassword').prop('action', tipo === 'contraseña' ? `/home/delete/${elemento.id}` : `/home/delete-card/${elemento.id}`);
+        $('#formEliminarPassword').prop('action', tipo === 'contraseña' ? `/home/delete/${id}` : `/home/delete-card/${id}`);
         $('#formEliminarPassword').submit();
 
     });

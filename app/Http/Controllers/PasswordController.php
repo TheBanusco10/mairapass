@@ -83,6 +83,11 @@ class PasswordController extends Controller
 
         $password = Password::findOrFail($id);
 
+        if ($password->user_id != Auth::user()->id) {
+            Alert::storeAlert('No tienes permisos para realizar esta acción', 'danger');
+            return redirect(route('home'));
+        }
+
         $password->delete();
 
         Alert::storeAlert('Contraseña eliminada correctamente');

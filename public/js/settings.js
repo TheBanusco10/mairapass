@@ -77,7 +77,7 @@ function accessibility() {
  */
 function setImage(url) {
     window.localStorage.setItem('backgroundImage', url);
-    window.location.reload();
+    getImage();
 }
 
 /**

@@ -1,0 +1,23 @@
+#resultadosImagen {
+    display: flex;
+    flex-wrap: wrap;
+
+    max-height: 250px;
+
+    justify-content: center;
+
+    margin-top: .6rem;
+
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.imagen {
+    margin-right: .5rem;
+    margin-bottom: .5rem;
+}
+
+.imagen img {
+    width: 200px;
+    height: 150px;
+}

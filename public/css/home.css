@@ -7,8 +7,7 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
 
-    overflow: auto;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 #alerta {

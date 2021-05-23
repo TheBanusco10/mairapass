@@ -1,5 +1,15 @@
 @extends('layouts.app')
 
+@section('scripts')
+
+    <script src="{{ asset('js/settingsImageApi.js')  }}"></script>
+
+@endsection
+
+@section('estilos')
+    <link rel="stylesheet" href="{{ asset('css/imageApi.css')  }}">
+@endsection
+
 @section('content')
 
     <div class="container">
@@ -22,6 +32,14 @@
                             <button class="btn btn-primary mt-3" id="cambiarFondo">Nuevo fondo</button>
                             <button class="btn btn-primary mt-3" id="reiniciarFondo">Reiniciar</button>
                         </div>
+                        <form id="imagenesForm">
+
+                            <h3>Busca tu imagen</h3>
+                            <input placeholder="Flores, montañas, anime..." type="text" id="buscarImagen" class="form-control">
+                            <div id="resultadosImagen">
+
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -60,6 +78,8 @@
                     </div>
                 </div>
             </div>
+
+
 
         </div>
 

@@ -44,6 +44,25 @@ $(function () {
 
     });
 
+    if ($('#card_number').val().length >= 5) comprobarTipoTarjetaCredito($('#card_number'));
+    
+    $('#card_number').keyup(function() {
+
+        if ($(this).val().length < 18) {
+
+            // Añadimos un espacio cada 4 números
+            if ($(this).val().length == 4 || $(this).val().length == 9 || $(this).val().length == 14) $(this).val($(this).val() + ' ');
+
+
+        }else {
+            $(this).val($(this).val().substring(0, 19));
+        }
+
+        comprobarTipoTarjetaCredito($(this));
+
+
+    });
+
     // Validamos la fecha de caducidad
     $('#expiration').focusout(function () {
 

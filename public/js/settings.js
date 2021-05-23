@@ -3,7 +3,7 @@ $(function () {
     getImage();
     accessibility();
     checkAlert();
-
+    deleteAccount();
 
     $('#cambiarFondo').click(function () {
 
@@ -99,4 +99,14 @@ function checkAlert() {
             $('#alerta').removeClass('mostrarAlerta').addClass('quitarAlerta');
         }, 3000);
     }
+}
+
+function deleteAccount() {
+
+    $('#eliminarCuentaBoton').attr('disabled', 'disabled');
+
+    $('#eliminarCuentaInput').keyup(function () {
+
+        $(this).val() === 'Eliminar cuenta' ? $('#eliminarCuentaBoton').removeAttr('disabled') : $('#eliminarCuentaBoton').attr('disabled', 'disabled');
+    })
 }

@@ -20,9 +20,8 @@ Route::get('/test', function () {
     return view('test');
 });
 Auth::routes();
-//Auth::routes(['verify' => true]);
+Auth::routes(['verify' => true]);
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
 Route::get('/home/create', 'App\Http\Controllers\PasswordController@create')->name('createPassword')->middleware('verified');
@@ -46,3 +45,4 @@ Route::put('/updatePro/{user}', 'App\Http\Controllers\UserController@updatePro')
 
 Route::delete('/home/delete/{id}', 'App\Http\Controllers\PasswordController@delete')->middleware('verified');
 Route::delete('/home/delete-card/{id}', 'App\Http\Controllers\CardController@delete')->middleware('verified');
+Route::delete('/home/delete-user', 'App\Http\Controllers\UserController@delete')->middleware('verified');

@@ -79,6 +79,30 @@
                 </div>
             </div>
 
+            <div class="col-12 mb-2">
+                <div class="card border-0">
+                    <div class="card-header bg-danger text-light">
+                        <h4>Eliminar cuenta</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="/home/delete-user" method="POST">
+                            @csrf
+                            @method('DELETE')
+
+                            <p>IMPORTANTE: Todos los datos de la cuenta se borrarán, esta acción no se puede deshacer.
+                            Si quiere continuar, escriba en el campo de abajo <strong>"Eliminar cuenta"</strong> y haga click en el botón para eliminar la cuenta.</p>
+                            <div class="input-group">
+                                <input type="text" id="eliminarCuentaInput" class="form-control" placeholder="Eliminar cuenta">
+                                <div class="input-group-append">
+                                    <button title="Eliminar cuenta" class="btn btn-danger" type="submit" id="eliminarCuentaBoton">
+                                        Eliminar cuenta
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
 
         </div>

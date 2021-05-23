@@ -30,6 +30,13 @@ class UserController extends Controller
 
     }
 
+    public function delete() {
+
+        User::findOrFail(Auth::user()->id)->delete();
+
+        return redirect(route('home'));
+    }
+
     protected function validateForm(): array
     {
         return request()->validate([

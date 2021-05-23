@@ -9,7 +9,7 @@
 @section('content')
 <div class="container" id="main">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8 mt-4">
             <div class="card">
                 <div class="card-header headerTitle">{{ __('Verifica tu correo electrónico para utilizar la aplicación') }}</div>
 

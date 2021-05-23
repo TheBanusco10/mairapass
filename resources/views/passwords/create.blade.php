@@ -15,8 +15,8 @@
 @section('content')
 
     <div class="container">
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-8">
+        <div class="row justify-content-center">
+            <div class="col-md-8 mt-4">
                 <div class="card">
                     <div class="card-header">Añadir contraseña</div>
 

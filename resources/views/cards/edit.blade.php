@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('scripts')
+    <script src="{{ asset('js/validateCard.js')  }}"></script>
+@endsection
 
 @section('content')
 
@@ -32,7 +35,7 @@
                                 <label for="card_number" class="col-md-4 col-form-label text-md-right">Número de tarjeta de crédito</label>
 
                                 <div class="col-md-6">
-                                    <input id="card_number" type="text" placeholder="1234 5678 9123 4567" class="form-control @error('card_number') is-invalid @enderror" name="card_number" value="{{ $card->card_number }}" autocomplete="card_number">
+                                    <input id="card_number" pattern="[0-9]{4}\s[0-9]{4}\s[0-9]{4}\s[0-9]{4}" type="text" placeholder="1234 5678 9123 4567" class="form-control @error('card_number') is-invalid @enderror" name="card_number" value="{{ $card->card_number }}" autocomplete="card_number">
 
                                     @error('card_number')
                                     <span class="invalid-feedback" role="alert">
@@ -40,13 +43,15 @@
                                     </span>
                                     @enderror
                                 </div>
+
+                                <p id="cardType" class="col-md-2"></p>
                             </div>
 
                             <div class="form-group row">
                                 <label for="expiration" class="col-md-4 col-form-label text-md-right">Caducidad</label>
 
                                 <div class="col-md-6">
-                                    <input id="expiration" type="text" placeholder="MM/YY" pattern="[0-9]{2}/[0-9]{2}" class="form-control @error('expiration') is-invalid @enderror" name="expiration" value="{{ $card->expiration }}" required autocomplete="expiration">
+                                    <input id="expiration" type="text" placeholder="MM/YYYY" pattern="[0-9]{2}/[0-9]{4}" class="form-control @error('expiration') is-invalid @enderror" name="expiration" value="{{ $card->expiration }}" required autocomplete="expiration">
 
                                     @error('expiration')
                                     <span class="invalid-feedback" role="alert">

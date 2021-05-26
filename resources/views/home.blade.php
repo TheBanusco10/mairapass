@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('scripts')
-    <script src="./js/passwordButtons.js"></script>
+    <script src="{{ asset('js/passwordButtons.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{asset('css/priceTable.css')}}">
@@ -383,7 +383,7 @@
 
                                                 <tr>
                                                     <td> {{$credit_card->title}} </td>
-                                                    <td> {{$credit_card->card_number}} </td>
+                                                    <td> <p class="card_number">{{$credit_card->card_number}}</p>  </td>
                                                     <td> {{$credit_card->expiration}} </td>
                                                     <td>
                                                         <input data-id="{{ $credit_card->id }}" readonly type="password" id="userPassword" name="{{ $credit_card->id }}" class="form-control" value="{{ $credit_card->ccv }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
@@ -441,7 +441,7 @@
 
                                                 <tr>
                                                     <td> {{$resultado->title}} </td>
-                                                    <td> {{$resultado->card_number}} </td>
+                                                    <td class="card_number"> {{$resultado->card_number}} </td>
                                                     <td> {{$resultado->expiration}} </td>
                                                     <td>
                                                         <input readonly type="password" id="userPassword" name="{{ $resultado->id }}" class="form-control" value="{{ $resultado->ccv }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
@@ -523,7 +523,7 @@
                                                 <h4>
                                                     {{$credit_card->title}}
                                                 </h4>
-                                                <p>{{$credit_card->card_number}}</p>
+                                                <p class="card_number">{{$credit_card->card_number}}</p>
                                                 <p>{{$credit_card->expiration}}</p>
                                                 <input readonly type="password" id="userPassword" name="{{ $credit_card->id }}" class="form-control" value="{{ $credit_card->ccv }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
                                                 <div class="acciones">
@@ -567,7 +567,7 @@
                                             <h4>
                                                 {{$resultado->title}}
                                             </h4>
-                                            <p> {{$resultado->card_number}} </p>
+                                            <p class="card_number"> {{$resultado->card_number}} </p>
                                             <p> {{$resultado->expiration}} </p>
                                             <input readonly type="password" id="userPassword" name="{{ $resultado->id }}" class="form-control" value="{{ $resultado->ccv }}" aria-label="Contraseña del usuario" aria-describedby="button-addon2">
                                             <div class="acciones">

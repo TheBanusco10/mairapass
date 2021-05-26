@@ -14,12 +14,11 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-12 mt-5">
+
+            <div class="col-12 mt-5 mb-5">
                 <a href="{{ route('home') }}" class="btn btn-secondary">Volver</a>
             </div>
-            <div class="col-12 mt-5">
-                <h1 class="text-center text-light">Esta es tu configuración, {{ $usuario->name }}.</h1>
-            </div>
+
             <div class="col-12 col-sm-6 mb-2">
                 <div class="card">
                     <div class="card-header">
@@ -35,7 +34,15 @@
                         <form id="imagenesForm">
 
                             <h3>Busca tu imagen</h3>
-                            <input placeholder="Flores, montañas, anime..." type="text" id="buscarImagen" class="form-control">
+
+                            <div class="input-group mb-3">
+                                <input placeholder="Flores, montañas, anime..." type="text" id="buscarImagen" class="form-control">
+                                <button class="btn btn-outline-secondary" type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                    </svg>
+                                </button>
+                            </div>
                             <div id="resultadosImagen">
 
                             </div>

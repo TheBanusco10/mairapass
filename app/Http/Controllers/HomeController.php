@@ -86,16 +86,10 @@ class HomeController extends Controller
         return view('emails.purchase-success');
     }
 
-    public function settings(User $user) {
-
-        // Si intentamos modificar otro usuario que no sea el nuestro, mostramos la configuración del usuario conectado
-        if (Auth::user()->id != $user->id)
-            return view('settings', [
-                'usuario' => Auth::user()
-            ]);
+    public function settings() {
 
         return view('settings', [
-            'usuario' => $user
+            'usuario' => Auth::user()
         ]);
 
     }

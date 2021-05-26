@@ -15,9 +15,11 @@
 .imagen {
     margin-right: .5rem;
     margin-bottom: .5rem;
+
+    cursor: pointer;
 }
 
 .imagen img {
-    width: 200px;
-    height: 150px;
+    width: 100%;
+    height: 100%;
 }

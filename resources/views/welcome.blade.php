@@ -115,7 +115,7 @@
                 <img src="{{ asset('imgs/logo2.png')  }}" alt="logo" style="width: 100%">
                 <p style="text-align: center">MairaPass</p>
                 <ul class="icons">
-                    <li><a href="#" target="_blank" class="icon fa-github"><span class="label">Twitter</span></a></li>
+                    <li><a href="https://github.com/TheBanusco10/proyecto-grado" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
                 </ul>
             </div>
         </div>

@@ -11,7 +11,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header bg-success text-center text-light headerTitle">{{ __('Iniciar sesión') }}</div>
+                <div class="card-header text-center text-light headerTitle">{{ __('Iniciar sesión') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -51,11 +51,11 @@
                                     {{ __('Iniciar sesión') }}
                                 </button>
 
-{{--                                @if (Route::has('password.request'))--}}
-{{--                                    <a class="btn btn-link" href="{{ route('password.request') }}">--}}
-{{--                                        {{ __('¿Has olvidado tu contraseña?') }}--}}
-{{--                                    </a>--}}
-{{--                                @endif--}}
+                                @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('¿Has olvidado tu contraseña?') }}
+                                    </a>
+                                @endif
                             </div>
                         </div>
                     </form>

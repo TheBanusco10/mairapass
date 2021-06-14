@@ -12,6 +12,7 @@
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="css/skel.css+style.css+style-xlarge.css" />
     <link rel="icon" type="img/jpg" href="imgs/favicon.jpg" sizes="192x192">
+    <link rel="stylesheet" href="{{asset('css/prices.css')}}">
 
     <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
     <script src="js/jquery.min.js"></script>
@@ -106,6 +107,132 @@
         </div>
     </div>
 </section>
+
+
+<div id="generic_price_table">
+    <section>
+        <div class="container">
+
+            <!--BLOCK ROW START-->
+            <div class="row precios">
+                <div class="col-md-6">
+
+                    <!--PRICE CONTENT START-->
+                    <div class="generic_content clearfix">
+
+                        <!--HEAD PRICE DETAIL START-->
+                        <div class="generic_head_price clearfix">
+
+                            <!--HEAD CONTENT START-->
+                            <div class="generic_head_content clearfix">
+
+                                <!--HEAD START-->
+                                <div class="head_bg"></div>
+                                <div class="head">
+                                    <span>Básico</span>
+                                </div>
+                                <!--//HEAD END-->
+
+                            </div>
+                            <!--//HEAD CONTENT END-->
+
+                            <!--PRICE START-->
+                            <div class="generic_price_tag clearfix">
+                                <span class="price">
+                                    <span class="sign"></span>
+                                    <span class="currency">Gratis</span>
+                                    <span class="cent"></span>
+                                    <span class="month"></span>
+                                </span>
+                            </div>
+                            <!--//PRICE END-->
+
+                        </div>
+                        <!--//HEAD PRICE DETAIL END-->
+
+                        <!--FEATURE LIST START-->
+                        <div class="generic_feature_list">
+                            <ul>
+                                <li><span>10</span> contraseñas</li>
+                                <li><span>Personalizar</span> imagen de fondo</li>
+                            </ul>
+                        </div>
+                        <!--//FEATURE LIST END-->
+
+                        <!--BUTTON START-->
+                        <div class="generic_price_btn clearfix">
+                            <a href="{{route('register')}}">Unirse</a>
+                        </div>
+                        <!--//BUTTON END-->
+
+                    </div>
+                    <!--//PRICE CONTENT END-->
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <!--PRICE CONTENT START-->
+                    <div class="generic_content active clearfix">
+
+                        <!--HEAD PRICE DETAIL START-->
+                        <div class="generic_head_price clearfix">
+
+                            <!--HEAD CONTENT START-->
+                            <div class="generic_head_content clearfix">
+
+                                <!--HEAD START-->
+                                <div class="head_bg"></div>
+                                <div class="head">
+                                    <span>Pro</span>
+                                </div>
+                                <!--//HEAD END-->
+
+                            </div>
+                            <!--//HEAD CONTENT END-->
+
+                            <!--PRICE START-->
+                            <div class="generic_price_tag clearfix">
+                                <span class="price">
+                                    <span class="sign">€</span>
+                                    <span class="currency">10</span>
+                                    <span class="cent"></span>
+                                    <span class="month">/pago único</span>
+                                </span>
+                            </div>
+                            <!--//PRICE END-->
+
+                        </div>
+                        <!--//HEAD PRICE DETAIL END-->
+
+                        <!--FEATURE LIST START-->
+                        <div class="generic_feature_list">
+                            <ul>
+                                <li><span>Ilimitadas</span> contraseñas</li>
+                                <li><span>Personalizar</span> imagen de fondo</li>
+                                <li><span>Ilimitadas</span> tarjetas de crédito</li>
+                                <li>Inicia sesión en <span>ilimitados</span> dispositivos</li>
+                                <li><span>Muestra</span> la seguridad de tu contraseña</li>
+                            </ul>
+                        </div>
+                        <!--//FEATURE LIST END-->
+
+                        <!--BUTTON START-->
+                        <div class="generic_price_btn clearfix">
+                            <a href="{{route('register')}}">Unirse</a>
+                        </div>
+                        <!--//BUTTON END-->
+
+                    </div>
+                    <!--//PRICE CONTENT END-->
+
+                </div>
+            </div>
+            <!--//BLOCK ROW END-->
+
+        </div>
+    </section>
+</div>
 
 <!-- Footer -->
 <footer id="footer">

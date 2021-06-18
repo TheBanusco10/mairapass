@@ -29,7 +29,8 @@ $(function () {
 
     $('#resultadosImagen').on('click', '.imagen', function () {
 
-        setImage($(this).data('url'));
+        setImage('backgroundImage', $(this).data('url'));
+        $('main').css('background-image', `url("${getImage('backgroundImage')}")`);
 
     });
 

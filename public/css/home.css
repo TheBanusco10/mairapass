@@ -58,6 +58,29 @@ main {
 
 }
 
+.userAvatar {
+    width: 35px;
+    height: 35px;
+
+    margin-left: .4rem;
+    object-fit: cover;
+
+    transition: all 0.3s linear;
+}
+
+li.nav-item > a:hover .userAvatar {
+    box-shadow: 0px 0px 25px 2px rgba(0, 0, 0, .3);
+}
+
+#imagenAvatarMuestra img {
+
+    width: 175px;
+    height: 175px;
+
+    object-fit: cover;
+
+}
+
 .columnaOpciones {
     height: 100vh;
     padding: 0;

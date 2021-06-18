@@ -1,20 +1,45 @@
 $(function () {
 
-    getImage();
+    let backgroundImage = getImage('backgroundImage');
+    backgroundImage ? $('main').css('background-image', `url("${backgroundImage}")`) : $('main').css('background-image', `url("../imgs/fondo1.jpg")`);
+
+    let avatarImage = getImage('avatarImage');
+    if (avatarImage) {
+        $('.userAvatar').attr('src', avatarImage);
+        $('#imagenAvatarMuestra > img').attr('src', avatarImage);
+    }else {
+        $('.userAvatar').attr('src', '../imgs/avatar.png');
+        $('#imagenAvatarMuestra > img').attr('src', '../imgs/avatar.png');
+    }
+
     accessibility();
     checkAlert();
     deleteAccount();
 
+    // Fondo de la aplicación
     $('#cambiarFondo').click(function () {
 
-       setImage($('#urlImagen').val());
+       setImage('backgroundImage', $('#urlImagen').val());
 
-   });
+    });
 
-   $('#reiniciarFondo').click(function () {
-       window.localStorage.removeItem('backgroundImage');
-       getImage();
-   });
+    $('#reiniciarFondo').click(function () {
+        window.localStorage.removeItem('backgroundImage');
+        $('main').css('background-image', `url("../imgs/fondo1.jpg")`);
+    });
+
+    // Imagen de avatar
+    $('#cambiarAvatar').click(function () {
+
+        setImage('avatarImage', $('#urlImagenAvatar').val());
+
+    });
+
+    $('#reiniciarAvatar').click(function () {
+        window.localStorage.removeItem('avatarImage');
+        window.location.reload();
+    });
+
 
 
 });
@@ -28,8 +53,6 @@ function accessibility() {
         let triggerEl = '';
 
         let code = e.keyCode || e.which;
-
-        console.log(code);
 
         switch (code) {
 
@@ -75,18 +98,17 @@ function accessibility() {
  * @description Guardamos la URL en LocalStorage
  * @param url
  */
-function setImage(url) {
-    window.localStorage.setItem('backgroundImage', url);
-    getImage();
+function setImage(itemName, url) {
+    window.localStorage.setItem(itemName, url);
+    window.location.reload();
 }
 
 /**
  * @description Tomamos la URL y la añadimos al css de la etiqueta main
  */
-function getImage() {
+function getImage(itemName) {
 
-    let image = window.localStorage.backgroundImage;
-    image ? $('main').css('background-image', `url("${image}")`) : $('main').css('background-image', `url("../imgs/fondo1.jpg")`);
+    return window.localStorage.getItem(itemName);
 
 }
 

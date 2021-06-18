@@ -19,6 +19,27 @@
                 <a href="{{ route('home') }}" class="btn btn-secondary">Volver</a>
             </div>
 
+{{--            Imagen de avatar                    --}}
+            <div class="col-12 mb-2">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Cambiar avatar</h4>
+                    </div>
+                    <div class="card-body d-flex flex-wrap">
+                        <div class="col-12 col-md-6">
+                            <label for="url">URL de la imagen</label>
+                            <input type="text" id="urlImagenAvatar" class="form-control">
+                            <button class="btn btn-primary mt-3" id="cambiarAvatar">Cambiar</button>
+                            <button class="btn btn-primary mt-3" id="reiniciarAvatar">Reiniciar</button>
+                        </div>
+                        <div class="col-12 col-md-6 text-center mt-4 mt-md-0" id="imagenAvatarMuestra">
+                            <img class="rounded-circle" alt="imagenAvatarMuestra">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{{--            Fondo de la aplicación              --}}
             <div class="col-12 col-sm-6 mb-2">
                 <div class="card">
                     <div class="card-header">
@@ -51,6 +72,7 @@
                 </div>
             </div>
 
+{{--            Datos personales                    --}}
             <div class="col-12 col-sm-6 mb-2">
                 <div class="card">
                     <div class="card-header">
@@ -86,6 +108,7 @@
                 </div>
             </div>
 
+{{--            Eliminar cuenta                     --}}
             <div class="col-12 mb-2">
                 <div class="card border-0">
                     <div class="card-header bg-danger text-light">

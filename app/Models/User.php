@@ -42,7 +42,7 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     public function passwords() {
-        return $this->hasMany(Password::class);
+        return $this->hasMany(Password::class)->orderBy('id', 'desc');
     }
 
     public function credit_cards() {

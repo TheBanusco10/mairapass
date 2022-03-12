@@ -689,9 +689,9 @@
                 <div class="modal-body">
                     <p id="modalBody"></p>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer d-flex flex-wrap justify-content-between">
+                    <button type="button" class="btn btn-outline-danger" id="eliminarBotonModal">Eliminar</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger" id="eliminarBotonModal">Eliminar</button>
                 </div>
             </div>
         </div>

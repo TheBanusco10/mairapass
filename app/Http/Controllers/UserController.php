@@ -41,13 +41,6 @@ class UserController extends Controller
         return redirect(route('settings', $user));
     }
 
-    public function removeAvatar(User $user) {
-        
-        User::where('id', $user->id)->update(['avatar_image' => NULL]);
-
-        return redirect(route('settings', $user));
-    }
-
     public function delete() {
 
         User::findOrFail(Auth::user()->id)->delete();

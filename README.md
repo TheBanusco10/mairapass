@@ -39,6 +39,7 @@ Setup .env file.
 APP_DEBUG=true
 APP_ENV=local
 APP_KEY=key
+DATABASE_URL
 - config/database.php configure with Database access
 - Be sure you have postgreSQL extension activate in php.ini
   

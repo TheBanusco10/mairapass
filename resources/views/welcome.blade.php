@@ -36,7 +36,6 @@
                 </form>
             @else
                 <li><a href="{{ route('login') }}" class="button special">INICIAR SESIÓN</a></li>
-                <li><a href="{{ route('register') }}" class="button special">REGISTRARSE</a></li>
             @endauth
         </ul>
     </nav>
@@ -50,8 +49,6 @@
         <ul class="actions">
             @auth
                 <li><a href="{{ route('home') }}" class="button big special">Mis contraseñas</a></li>
-            @else
-                <li><a href="{{ route('register') }}" class="button big special">Registrarse</a></li>
             @endauth
             <li><a href="#nosotros" class="button big alt">Leer más</a></li>
         </ul>
@@ -161,7 +158,7 @@
 
                         <!--BUTTON START-->
                         <div class="generic_price_btn clearfix">
-                            <a href="{{route('register')}}">Unirse</a>
+                            <a href="#">Unirse</a>
                         </div>
                         <!--//BUTTON END-->
 
@@ -219,7 +216,7 @@
 
                         <!--BUTTON START-->
                         <div class="generic_price_btn clearfix">
-                            <a href="{{route('register')}}">Unirse</a>
+                            <a href="#">Unirse</a>
                         </div>
                         <!--//BUTTON END-->
 

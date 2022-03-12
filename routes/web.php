@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/test', function () {
-    return view('test');
-});
-Auth::routes();
-Auth::routes(['verify' => true]);
+
+Auth::routes([
+    'verify' => true,
+    'register' => false
+]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
@@ -48,5 +48,3 @@ Route::put('/updateAvatar/{user}', 'App\Http\Controllers\UserController@updateAv
 Route::delete('/home/delete/{id}', 'App\Http\Controllers\PasswordController@delete')->middleware('verified');
 Route::delete('/home/delete-card/{id}', 'App\Http\Controllers\CardController@delete')->middleware('verified');
 Route::delete('/home/delete-user', 'App\Http\Controllers\UserController@delete')->middleware('verified');
-Route::delete('/home/removeAvatar/{user}', 'App\Http\Controllers\UserController@removeAvatar')->name('removeAvatar')->middleware('verified');
-

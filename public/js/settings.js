@@ -1,41 +1,35 @@
 $(function () {
 
-    let backgroundImage = getImage('backgroundImage');
-    backgroundImage ? $('main').css('background-image', `url("${backgroundImage}")`) : $('main').css('background-image', `url("../imgs/fondo1.jpg")`);
+    $('main').css('background-image', `url("${getImage('backgroundImage') || '/imgs/fondo1.jpg'}")`)
 
-    let avatarImage = getImage('avatarImage');
-    if (avatarImage) {
-        $('.userAvatar').attr('src', avatarImage);
-        $('#imagenAvatarMuestra > img').attr('src', avatarImage);
-    }else {
-        $('.userAvatar').attr('src', '../imgs/avatar.png');
-        $('#imagenAvatarMuestra > img').attr('src', '../imgs/avatar.png');
-    }
+    // $('.userAvatar').attr('src', getImage('avatarImage') || '/imgs/avatar.png');
 
     accessibility();
     checkAlert();
     deleteAccount();
 
     // Fondo de la aplicación
-    $('#cambiarFondo').click(function () {
+    $('#cambiarFondo').on('click', function () {
 
        setImage('backgroundImage', $('#urlImagen').val());
 
     });
 
-    $('#reiniciarFondo').click(function () {
+    $('#reiniciarFondo').on('click', function () {
         window.localStorage.removeItem('backgroundImage');
         $('main').css('background-image', `url("../imgs/fondo1.jpg")`);
     });
 
     // Imagen de avatar
-    $('#cambiarAvatar').click(function () {
+    $('#cambiarAvatar').on('click', function (evt) {
+
+        // evt.preventDefault();
 
         setImage('avatarImage', $('#urlImagenAvatar').val());
 
     });
 
-    $('#reiniciarAvatar').click(function () {
+    $('#reiniciarAvatar').on('click', function () {
         window.localStorage.removeItem('avatarImage');
         window.location.reload();
     });

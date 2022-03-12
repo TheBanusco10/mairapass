@@ -42,7 +42,11 @@ Route::put('/update/{password}', 'App\Http\Controllers\PasswordController@update
 Route::put('/update-card/{card}', 'App\Http\Controllers\CardController@update')->name('updateCard')->middleware('verified');
 Route::put('/updateInformation/{user}', 'App\Http\Controllers\UserController@updateInformation')->name('updateInformation')->middleware('verified');
 Route::put('/updatePro/{user}', 'App\Http\Controllers\UserController@updatePro')->name('updatePro')->middleware('verified');
+Route::put('/updateAvatar/{user}', 'App\Http\Controllers\UserController@updateAvatar')->name('updateAvatar')->middleware('verified');
+
 
 Route::delete('/home/delete/{id}', 'App\Http\Controllers\PasswordController@delete')->middleware('verified');
 Route::delete('/home/delete-card/{id}', 'App\Http\Controllers\CardController@delete')->middleware('verified');
 Route::delete('/home/delete-user', 'App\Http\Controllers\UserController@delete')->middleware('verified');
+Route::delete('/home/removeAvatar/{user}', 'App\Http\Controllers\UserController@removeAvatar')->name('removeAvatar')->middleware('verified');
+

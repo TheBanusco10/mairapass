@@ -1,5 +1,12 @@
 $(function () {
 
+    // Validamos el Input Range con la longitud de la contraseña
+
+    const passwordRange = {
+        min: 12,
+        max: 20
+    }
+
     // Si estamos editando la contraseña la comprobamos para recargar su nivel de seguridad
     $('#password').val().length > 0 ? comprobarPassword($('#password').val()) : null;
 
@@ -20,7 +27,8 @@ $(function () {
          * Generamos la contraseña con una longitud y las opciones
          */
         let password = generatePassword.randomPassword({
-            length: parseInt($('#inputRange').val()),
+            // length: parseInt($('#inputRange').val()),
+            length: parseInt($('#inputRange').val()) >= passwordRange.min || parseInt($('#inputRange').val()) <= passwordRange.max ? parseInt($('#inputRange').val()) : passwordRange.max,
             characters: passwordOptions
         });
 

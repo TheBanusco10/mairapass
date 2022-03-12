@@ -27,13 +27,19 @@
                     </div>
                     <div class="card-body d-flex flex-wrap">
                         <div class="col-12 col-md-6">
-                            <label for="url">URL de la imagen</label>
-                            <input type="text" id="urlImagenAvatar" class="form-control">
-                            <button class="btn btn-primary mt-3" id="cambiarAvatar">Cambiar</button>
-                            <button class="btn btn-primary mt-3" id="reiniciarAvatar">Reiniciar</button>
+                            <form method="POST" action=" {{route('updateAvatar', $usuario)}} ">
+                                @csrf
+                                @method('PUT')
+                                    <label for="url">URL de la imagen</label>
+                                    <input type="url" pattern="https://.*" id="urlImagenAvatar" name="avatar_image" class="form-control">
+                                    <div class="d-flex flex-wrap justify-content-between">
+                                        <button class="btn btn-primary mt-3" id="cambiarAvatar" name="change_avatar" type="input">Establecer</button>
+                                        <button class="btn btn-outline-primary mt-3" id="reiniciarAvatar" name="reset_avatar" type="input">Reiniciar</button>
+                                    </div>
+                            </form>
                         </div>
                         <div class="col-12 col-md-6 text-center mt-4 mt-md-0" id="imagenAvatarMuestra">
-                            <img class="rounded-circle" alt="imagenAvatarMuestra">
+                            <img src="{{ $usuario->avatar_image ?? '/imgs/avatar.png' }}" class="userAvatar rounded-circle" alt="imagenAvatarMuestra">
                         </div>
                     </div>
                 </div>
@@ -49,8 +55,10 @@
                         <div class="form-group">
                             <label for="url">URL de la imagen</label>
                             <input type="text" id="urlImagen" class="form-control">
-                            <button class="btn btn-primary mt-3" id="cambiarFondo">Nuevo fondo</button>
-                            <button class="btn btn-primary mt-3" id="reiniciarFondo">Reiniciar</button>
+                            <div class="d-flex flex-wrap justify-content-between">
+                                <button class="btn btn-primary mt-3" id="cambiarFondo">Nuevo fondo</button>
+                                <button class="btn btn-outline-primary mt-3" id="reiniciarFondo">Reiniciar</button>
+                            </div>
                         </div>
                         <form id="imagenesForm">
 

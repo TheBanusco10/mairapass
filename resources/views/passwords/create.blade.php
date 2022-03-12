@@ -145,9 +145,9 @@
                                 </div>
                                 @endif
                                 <div class="col-md-4"></div>
-                                <span class="mr-2">6</span>
-                                <input id="inputRange" type="range" min="6" max="12" class="col-md-6 p-0">
-                                <span class="ml-2">12</span>
+                                <span class="mr-2">12</span>
+                                <input id="inputRange" type="range" min="12" max="20" class="col-md-6 p-0">
+                                <span class="ml-2">20</span>
                             </div>
 
                             <div class="form-group row mb-0">

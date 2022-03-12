@@ -71,7 +71,7 @@
                                             @endif
                                             {{ Auth::user()->name }}
 
-                                            <img class="userAvatar rounded-circle" alt="avatar">
+                                            <img src="{{$usuario->avatar_image ?? '/imgs/avatar.png'}}" class="userAvatar rounded-circle" alt="avatar">
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

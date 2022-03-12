@@ -44,7 +44,7 @@
             </div>
             <div id="contenidoAplicacion" class="col-12 col-md-10 mt-4">
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="contraseñas" role="tabpanel" aria-labelledby="contraseñas">
+                    <div class="mb-3 mb-0 tab-pane fade show active" id="contraseñas" role="tabpanel" aria-labelledby="contraseñas">
 
                         {{--                        VISTA ESCRITORIO                        --}}
                         <div class="container d-none d-md-block" id="homeContainer">
@@ -238,7 +238,7 @@
                                     @endif
                                     @foreach($passwords as $password)
 
-                                            <div class="mb-5">
+                                            <div class="p-3 p-0">
                                                 <h4>
                                                     <a href="{{$password->url_web}}">
                                                         {{$password->web}}

@@ -27,8 +27,9 @@ npm install
 
 `
 composer update
-composer install
 `
+
+`composer install`
 
 ### 2
 

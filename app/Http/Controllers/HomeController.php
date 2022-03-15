@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Password;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -33,7 +32,7 @@ class HomeController extends Controller
 
         $user = Auth::user();
 
-        // Comprobamos las contraseñas
+        // Comprobamos el número de contraseñas que tiene
         $numberPasswords = Password::where('user_id', $user->id)->count();
 
         $canAddPasswords = true;

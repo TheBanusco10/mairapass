@@ -34,13 +34,13 @@
         <nav class="navbar navbar-expand navbar-light bg-white shadow-sm">
             <div class="container">
                 <div class="row w-100">
-                    <div class="col-12 col-md-6">
+                    <div class="col-4 col-md-6">
 
                         <a class="navbar-brand" href="{{ route('home') }}">
                             <img src="{{ asset('imgs/logo.jpg') }}" alt="logo" style="height: 48px">
                         </a>
                     </div>
-                    <div class="col-12 col-md-6 d-flex align-items-center">
+                    <div class="col-8 col-md-6 d-flex align-items-center">
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 

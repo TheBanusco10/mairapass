@@ -16,7 +16,6 @@ class PasswordController extends Controller
 
     public function store(Request $request) {
 
-
         $password = new Password($this->validateForm());
 
         $password->user_id = auth()->id();
@@ -53,6 +52,11 @@ class PasswordController extends Controller
     }
 
     public function update(Password $password) {
+
+        if ($password->user_id != Auth::user()->id) {
+            Alert::storeAlert('No tienes permisos para realizar esta acción', 'danger');
+            return redirect(route('home'));
+        }
 
         if ($this->validateForm()) {
 

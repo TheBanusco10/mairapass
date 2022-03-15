@@ -1,8 +1,6 @@
 $(function () {
 
-    $('main').css('background-image', `url("${getImage('backgroundImage') || '/imgs/fondo1.jpg'}")`)
-
-    // $('.userAvatar').attr('src', getImage('avatarImage') || '/imgs/avatar.png');
+    $('main').css('background-image', `url("${getImage('backgroundImage') || '/imgs/fondo.jpg'}")`)
 
     accessibility();
     checkAlert();
@@ -18,15 +16,6 @@ $(function () {
     $('#reiniciarFondo').on('click', function () {
         window.localStorage.removeItem('backgroundImage');
         $('main').css('background-image', `url("../imgs/fondo1.jpg")`);
-    });
-
-    // Imagen de avatar
-    $('#cambiarAvatar').on('click', function (evt) {
-
-        // evt.preventDefault();
-
-        setImage('avatarImage', $('#urlImagenAvatar').val());
-
     });
 
     $('#reiniciarAvatar').on('click', function () {

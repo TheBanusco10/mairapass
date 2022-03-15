@@ -97,6 +97,8 @@ li.nav-item > a:hover .userAvatar {
     color: white;
     background-color: #222;
 
+    transition: all .3s;
+
 }
 
 .tarjeta-contraseña {

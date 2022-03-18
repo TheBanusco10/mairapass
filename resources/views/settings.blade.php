@@ -116,6 +116,42 @@
                 </div>
             </div>
 
+{{--            2FA                    --}}
+
+            <div class="col-12 mb-2">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>2FA</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="col-12">
+                            @if (auth()->user()->two_factor_secret)
+                                <p>2FA activado</p>
+                                {{!! $request->user()->twoFactorQrCodeSvg() !!}}
+                                @foreach ((array) $request->user()->recoveryCodes() as $recovery_code)
+                                    <p>{{ $recovery_code }}</p>
+                                @endforeach
+                            @else
+                                <p style="color: red;">2FA desactivado</p>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <form method="POST" action="/user/two-factor-authentication">
+                                @csrf
+
+                                @if (auth()->user()->two_factor_secret)
+                                <p>2FA activado</p>
+                                    @method('DELETE')
+                                    <button class="btn btn-danger mt-3" type="submit">Desactivar 2FA</button>
+                                @else
+                                    <button class="btn btn-primary mt-3" type="submit">Activar 2FA</button>
+                                @endif
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 {{--            Eliminar cuenta                     --}}
             <div class="col-12 mb-2">
                 <div class="card border-0">

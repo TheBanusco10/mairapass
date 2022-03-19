@@ -2,16 +2,16 @@
 
 @section('estilos')
 
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container" id="main">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('2FA') }}</div>
+                <div class="card-header text-center text-light headerTitle">{{ __('2FA') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="/two-factor-challenge">

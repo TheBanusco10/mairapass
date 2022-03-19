@@ -1,0 +1,40 @@
+.fa_text_information {
+    text-align: justify;
+    font-size: 13px;
+}
+
+.fa_information {
+    display: flex;
+    justify-content: center;
+}
+
+.fa_information .qr_code {
+    display: flex;
+    align-items: center;
+}
+
+.fa_information .recovery_codes {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 30px;
+
+    transition: all .3s;
+}
+
+.fa_information .recovery_codes .codes_header {
+    width: 100%;
+
+    text-align: center;
+    font-size: 25px;
+
+    font-weight: bold;
+
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .fa_information {
+        flex-wrap: wrap;
+    }
+}

@@ -23,6 +23,26 @@ $(function () {
         window.location.reload();
     });
 
+    let showingRecoveryCodes = false;
+    $('[data-show_recovery_codes]').on('click', function() {
+        
+        const button = $(this);
+        
+        showingRecoveryCodes = !showingRecoveryCodes;
+
+        const codesContainer = $('.recovery_codes');
+
+        if (showingRecoveryCodes) {
+            codesContainer.css('display', 'flex');
+            button.html('Ocultar códigos');
+        }else {
+            codesContainer.css('display', 'none');
+            button.html('Mostrar códigos');
+        }
+
+        
+    });
+
 
 
 });
@@ -114,4 +134,12 @@ function deleteAccount() {
 
         $(this).val() === 'Eliminar cuenta' ? $('#eliminarCuentaBoton').removeAttr('disabled') : $('#eliminarCuentaBoton').attr('disabled', 'disabled');
     })
+}
+
+/**
+ * @description Mostramos u ocultamos los códigos de recuperación 2FA
+ */
+ function changeRecoveryCodesVisibility(itemName, url) {
+    window.localStorage.setItem(itemName, url);
+    window.location.reload();
 }

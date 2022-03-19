@@ -1,13 +1,7 @@
 @extends('layouts.app')
 
-@section('scripts')
-
-    <script src="{{ asset('js/settingsImageApi.js')  }}"></script>
-
-@endsection
-
 @section('estilos')
-    <link rel="stylesheet" href="{{ asset('css/imageApi.css')  }}">
+    <link rel="stylesheet" href="{{ asset('css/settings.css')  }}">
 @endsection
 
 @section('content')
@@ -82,7 +76,7 @@
 
 {{--            Datos personales                    --}}
             <div class="col-12 col-sm-6 mb-2">
-                <div class="card">
+                <div class="card h-100">
                     <div class="card-header">
                         <h4>Tus datos</h4>
                     </div>
@@ -110,6 +104,56 @@
 
 
                                 <button class="btn btn-primary mt-3">Actualizar información</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{{--            2FA                    --}}
+
+            <div class="col-12 mb-2">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>2FA</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="col-12">
+                            @if (auth()->user()->two_factor_secret)
+                                <div class="fa_information">
+                                    <div class="qr_code">
+                                        {!! $request->user()->twoFactorQrCodeSvg() !!}
+                                    </div>
+                                    <div class="recovery_codes">
+                                        <p class="mt-2 mt-sm-0 codes_header">Códigos de recuperación</p>
+                                        @foreach ((array) $request->user()->recoveryCodes() as $recovery_code)
+                                            <p class="codes">
+                                                {{ $recovery_code }}    
+                                            </p>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @else
+                                <p class="fa_text_information" style="font-size: 13px;">
+                                    Para una mayor seguridad, por favor active la verificación en 2 pasos. Se generará un código QR que deberá escanear con una aplicación compatible con códigos OTP en su móvil: Authy, Google Authenticator... 
+                                    Cuando inicie sesión en la aplicación, se le pedirá el código de 6 dígitos que le genere la aplicación. Para activar la verificación en 2 pasos deberá confirmar su contraseña antes y ya podrá activarlo con el botón de abajo. 
+                                    Además, le indicaremos varios códigos de recuperación para que pueda iniciar sesión si no tiene acceso a su aplicación generadora de códigos.
+                                    <br>
+                                    ATENCIÓN: No utilice estos códigos de recuperación como contraseña para iniciar sesión habitualmente. Estos códigos son de UN SOLO USO, por lo que tenga mucho cuidado. Mantenga estos códigos bien guardados y no se los pase a nadie.
+                                </p>
+                            @endif
+                        </div>
+                        <div class="form-group text-right">
+                            <form method="POST" action="/user/two-factor-authentication">
+                                @csrf
+
+                                @if (auth()->user()->two_factor_secret)
+                                    @method('DELETE')
+                                    <button class="btn btn-outline-primary mt-3" data-show_recovery_codes type="button">Mostrar códigos</button>
+                                    <button class="btn btn-danger mt-3" type="submit">Desactivar 2FA</button>
+                                @else
+                                    <button class="btn btn-primary mt-3" type="submit">Activar 2FA</button>
+                                @endif
                             </form>
                         </div>
                     </div>

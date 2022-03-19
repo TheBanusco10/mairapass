@@ -22,7 +22,7 @@
 
                     {{ __('Antes de continuar, verifique su cuenta.') }}
                     {{ __('Si no has recibido el enlace de verificación') }},
-                    <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+                    <form class="d-inline" method="GET" action="{{ route('verification.resend') }}">
                         @csrf
                         <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('Haz click para recibir un nuevo enlace') }}</button>.
                     </form>

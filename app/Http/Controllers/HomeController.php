@@ -85,10 +85,11 @@ class HomeController extends Controller
         return view('emails.purchase-success');
     }
 
-    public function settings() {
+    public function settings(Request $request) {
 
         return view('settings', [
-            'usuario' => Auth::user()
+            'usuario' => Auth::user(),
+            'request' => $request
         ]);
 
     }

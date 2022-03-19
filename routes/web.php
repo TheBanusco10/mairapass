@@ -17,10 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Auth::routes([
-//     'verify' => true,
-//     'register' => false
-// ]);
+Route::get('email/verify', 'App\Http\Controllers\Auth\VerificationController@show')->name('verification.notice');
+Route::get('email/verify/{id}', 'App\Http\Controllers\Auth\VerificationController@verify')->name('verification.verify');
+Route::get('email/resend', 'App\Http\Controllers\Auth\VerificationController@resend')->name('verification.resend');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 

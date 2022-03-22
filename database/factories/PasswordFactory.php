@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Http\Controllers\EncryptionController;
 use App\Models\Password;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PasswordFactory extends Factory
@@ -23,10 +23,11 @@ class PasswordFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::factory()->create(),
-            'web' => $this->faker->domainName,
-            'email' => $this->faker->unique()->safeEmail,
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'user_id' => 9,
+            'web' => EncryptionController::encrypt($this->faker->domainName),
+            'url_web' => EncryptionController::encrypt($this->faker->domainName),
+            'email' => EncryptionController::encrypt($this->faker->unique()->safeEmail),
+            'password' => EncryptionController::encrypt('admin'), // password
         ];
     }
 }

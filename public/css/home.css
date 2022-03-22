@@ -11,6 +11,40 @@ main {
     min-height: calc(100vh - 74px);
 }
 
+#contenidoAplicacion {
+    padding: 0;
+}
+
+.header .acciones {
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+    padding: 20px 50px;
+
+    color: white;
+}
+
+.acciones {
+    justify-content: space-between;
+    display: flex;
+
+    margin-top: 1rem;
+}
+
+.custom-card {
+    background-color: white;
+
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, .3);
+
+    border-radius: 3px;
+
+    margin: 0.7rem;
+    min-width: 25%;
+}
+
 #alerta {
     padding: 10px;
     position: absolute;
@@ -107,18 +141,6 @@ li.nav-item > a:hover .userAvatar {
 
 }
 
-#contraseñas {
-    height: 83vh;
-    overflow: scroll;
-
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
-
-#contraseñas::-webkit-scrollbar {
-    display: none;
-}
-
 #homeContainer {
     background-color: white;
     padding: 20px;
@@ -135,6 +157,13 @@ li.nav-item > a:hover .userAvatar {
 
 .passwords {
     text-align: center;
+
+    height: 70vh;
+    overflow: scroll;
+}
+
+.passwords::-webkit-scrollbar {
+    display: none;
 }
 
 .passwords article {

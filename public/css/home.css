@@ -42,7 +42,9 @@ main {
     border-radius: 3px;
 
     margin: 0.7rem;
+    
     min-width: 25%;
+    max-height: 270px;
 }
 
 #alerta {
@@ -158,7 +160,7 @@ li.nav-item > a:hover .userAvatar {
 .passwords {
     text-align: center;
 
-    height: 70vh;
+    max-height: 70vh;
     overflow: scroll;
 }
 
@@ -285,6 +287,10 @@ li.nav-item > a:hover .userAvatar {
 
         justify-content: center;
 
+    }
+
+    .header .acciones {
+        justify-content: center;
     }
 }
 

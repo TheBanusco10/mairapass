@@ -288,13 +288,9 @@ li.nav-item > a:hover .userAvatar {
         justify-content: center;
 
     }
-
-    .header .acciones {
-        justify-content: center;
-    }
 }
 
-@media (max-width: 368px) {
+@media (max-width: 600px) {
 
     input {
         width: 100%;
@@ -305,6 +301,10 @@ li.nav-item > a:hover .userAvatar {
         width: 100%;
         margin: 1rem 0 0 0;
         border-radius: 0;
+    }
+
+    .header .acciones {
+        justify-content: center;
     }
 
 }

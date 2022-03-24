@@ -47,9 +47,9 @@
                     <div class="mb-3 mb-0 tab-pane fade show active" id="contraseñas" role="tabpanel" aria-labelledby="contraseñas">
 
                         <div class="container">
-                            <div class="row justify-content-center header">
+                            <div class="header">
                                 <div class="acciones">
-                                    <div class="nuevo">
+                                    <div class="nuevo mb-2 mb-sm-0">
                                         @if ($canAddPasswords)
                                             <a href="{{ route('createPassword') }}" title="Añadir contraseña" class="btn btn-primary añadir">
                                                 Añadir contraseña
@@ -190,7 +190,7 @@
                             <div class="container">
                                 <div class="row justify-content-center header">
                                     <div class="acciones">
-                                        <div class="nuevo">
+                                        <div class="nuevo mb-2 mb-sm-0">
                                             <a href="{{ route('addCard') }}" title="Añadir tarjeta" class="btn btn-primary añadir">
                                                 Añadir tarjeta
                                             </a>

@@ -1,11 +1,11 @@
 $(function () {
 
-    $('main').css('background-image', `url("${getImage('backgroundImage') || '/imgs/fondo.jpg'}")`)
+    $('main').css('background-image', `linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,.2)), url("${getImage('backgroundImage') || '/imgs/fondo.jpg'}")`)
 
     accessibility();
     checkAlert();
     deleteAccount();
-
+    
     // Fondo de la aplicación
     $('#cambiarFondo').on('click', function () {
 

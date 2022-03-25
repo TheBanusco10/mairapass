@@ -161,7 +161,9 @@ li.nav-item > a:hover .userAvatar {
     text-align: center;
 
     max-height: 70vh;
+
     overflow: scroll;
+    scrollbar-width: none; /* Hidden in Mozilla */
 }
 
 .passwords::-webkit-scrollbar {

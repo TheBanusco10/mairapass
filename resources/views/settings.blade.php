@@ -167,7 +167,7 @@
                         <h4>Eliminar cuenta</h4>
                     </div>
                     <div class="card-body">
-                        <form action="/home/delete-user" method="POST">
+                        <form action=" {{ route('deleteUser') }} " method="POST">
                             @csrf
                             @method('DELETE')
 

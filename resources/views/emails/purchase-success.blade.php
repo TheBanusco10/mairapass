@@ -62,7 +62,7 @@
                     Su cuenta ha sido mejorada a <strong>Pro</strong>, ahora podrá disfrutar de todas
                     las ventajas como contraseñas ilimitadas.
                 </p>
-                <a href="{{URL::to('/home')}}" class="btn btn-success">Ir a la aplicación</a>
+                <a href="{{URL::to('/dashboard')}}" class="btn btn-success">Ir a la aplicación</a>
             </div>
         </div>
     </div>

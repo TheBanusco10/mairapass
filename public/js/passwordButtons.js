@@ -34,7 +34,14 @@ $(function () {
 });
 
 function copiarContraseña(id) {
-    navigator.clipboard.writeText($(`input[name='${id}']`).val());
+    // navigator.clipboard.writeText($(`input[name='${id}']`).val());
+    $(`input[name='${id}']`).prop('type', 'text');
+    $(`input[name='${id}']`).trigger('focus');
+    $(`input[name='${id}']`).trigger('select');
+    document.execCommand('copy');
+    $(`input[name='${id}']`).prop('type', 'password');
+    console.log('Copiado');
+
 }
 
 function confirmarEliminar(id, tipo) {
@@ -45,7 +52,7 @@ function confirmarEliminar(id, tipo) {
     $('#eliminarBotonModal').on('click', function () {
 
         // Comprobamos el tipo del elemento para eliminar el correcto
-        $('#formEliminarPassword').prop('action', tipo === 'contraseña' ? `/home/delete/${id}` : `/home/delete-card/${id}`);
+        $('#formEliminarPassword').prop('action', tipo === 'contraseña' ? `/dashboard/delete/${id}` : `/dashboard/delete-card/${id}`);
         $('#formEliminarPassword').trigger('submit');
 
     });
